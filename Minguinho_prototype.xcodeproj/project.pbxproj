@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,10 @@
 		075EC28322A8CDA6000F36A0 /* Minguinho_prototype.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 075EC28122A8CDA6000F36A0 /* Minguinho_prototype.xcdatamodeld */; };
 		075EC28522A8CDA8000F36A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 075EC28422A8CDA8000F36A0 /* Assets.xcassets */; };
 		075EC28822A8CDA8000F36A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 075EC28622A8CDA8000F36A0 /* LaunchScreen.storyboard */; };
+		076F7B4C22A8FC7C00721138 /* NewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F7B4B22A8FC7C00721138 /* NewNoteViewController.swift */; };
+		076F7B4E22A9141F00721138 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F7B4D22A9141F00721138 /* DataManager.swift */; };
+		077B5A1022A94B3E0019573C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B5A0F22A94B3E0019573C /* DetailViewController.swift */; };
+		1E3C1410DEAD83AE87923D6E /* Pods_Minguinho_prototype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A342503172DEBD2B881056D /* Pods_Minguinho_prototype.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,12 @@
 		075EC28422A8CDA8000F36A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		075EC28722A8CDA8000F36A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		075EC28922A8CDA8000F36A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		076F7B4B22A8FC7C00721138 /* NewNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteViewController.swift; sourceTree = "<group>"; };
+		076F7B4D22A9141F00721138 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		077B5A0F22A94B3E0019573C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4A342503172DEBD2B881056D /* Pods_Minguinho_prototype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Minguinho_prototype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB199C14700B2D339D8B0BCF /* Pods-Minguinho_prototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minguinho_prototype.release.xcconfig"; path = "Target Support Files/Pods-Minguinho_prototype/Pods-Minguinho_prototype.release.xcconfig"; sourceTree = "<group>"; };
+		E0D29267E36F2065A7ACF771 /* Pods-Minguinho_prototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minguinho_prototype.debug.xcconfig"; path = "Target Support Files/Pods-Minguinho_prototype/Pods-Minguinho_prototype.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E3C1410DEAD83AE87923D6E /* Pods_Minguinho_prototype.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +53,8 @@
 			children = (
 				075EC27922A8CDA6000F36A0 /* Minguinho_prototype */,
 				075EC27822A8CDA6000F36A0 /* Products */,
+				E0CDD4868E353C5BC840BE2D /* Pods */,
+				B8879E9E11589B0CE598867F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +70,34 @@
 			isa = PBXGroup;
 			children = (
 				075EC27A22A8CDA6000F36A0 /* AppDelegate.swift */,
-				075EC27C22A8CDA6000F36A0 /* ViewController.swift */,
 				075EC27E22A8CDA6000F36A0 /* Main.storyboard */,
 				075EC28422A8CDA8000F36A0 /* Assets.xcassets */,
 				075EC28622A8CDA8000F36A0 /* LaunchScreen.storyboard */,
 				075EC28922A8CDA8000F36A0 /* Info.plist */,
 				075EC28122A8CDA6000F36A0 /* Minguinho_prototype.xcdatamodeld */,
+				075EC27C22A8CDA6000F36A0 /* ViewController.swift */,
+				076F7B4B22A8FC7C00721138 /* NewNoteViewController.swift */,
+				076F7B4D22A9141F00721138 /* DataManager.swift */,
+				077B5A0F22A94B3E0019573C /* DetailViewController.swift */,
 			);
 			path = Minguinho_prototype;
+			sourceTree = "<group>";
+		};
+		B8879E9E11589B0CE598867F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A342503172DEBD2B881056D /* Pods_Minguinho_prototype.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E0CDD4868E353C5BC840BE2D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E0D29267E36F2065A7ACF771 /* Pods-Minguinho_prototype.debug.xcconfig */,
+				DB199C14700B2D339D8B0BCF /* Pods-Minguinho_prototype.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 075EC28C22A8CDA8000F36A0 /* Build configuration list for PBXNativeTarget "Minguinho_prototype" */;
 			buildPhases = (
+				7173CB8D9ACD685A9B697478 /* [CP] Check Pods Manifest.lock */,
 				075EC27322A8CDA6000F36A0 /* Sources */,
 				075EC27422A8CDA6000F36A0 /* Frameworks */,
 				075EC27522A8CDA6000F36A0 /* Resources */,
+				14453C32A0476E60D709C839 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,12 +168,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		14453C32A0476E60D709C839 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Minguinho_prototype/Pods-Minguinho_prototype-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Minguinho_prototype/Pods-Minguinho_prototype-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Minguinho_prototype/Pods-Minguinho_prototype-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7173CB8D9ACD685A9B697478 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Minguinho_prototype-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		075EC27322A8CDA6000F36A0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				075EC27D22A8CDA6000F36A0 /* ViewController.swift in Sources */,
+				076F7B4E22A9141F00721138 /* DataManager.swift in Sources */,
+				076F7B4C22A8FC7C00721138 /* NewNoteViewController.swift in Sources */,
+				077B5A1022A94B3E0019573C /* DetailViewController.swift in Sources */,
 				075EC28322A8CDA6000F36A0 /* Minguinho_prototype.xcdatamodeld in Sources */,
 				075EC27B22A8CDA6000F36A0 /* AppDelegate.swift in Sources */,
 			);
@@ -284,6 +364,7 @@
 		};
 		075EC28D22A8CDA8000F36A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0D29267E36F2065A7ACF771 /* Pods-Minguinho_prototype.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +383,7 @@
 		};
 		075EC28E22A8CDA8000F36A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB199C14700B2D339D8B0BCF /* Pods-Minguinho_prototype.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
