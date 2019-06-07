@@ -27,22 +27,23 @@ class NewNoteViewController: UIViewController {
     }
     var note: Note?
     
+    /* Problem with no note centent not solved yet
+     
     @objc func shareButton() {
-        print("Share button clicked")
         guard let note = note?.content else {
             print("no item to share")
             return
         }
-        
         let vc = UIActivityViewController(activityItems: [note], applicationActivities: nil)
         present(vc, animated: true, completion: nil)
     }
+    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
         noteTitle.becomeFirstResponder()
         // Do any additional setup after loading the view.
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.action, target: self, action: #selector(shareButton))
+        //self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.action, target: self, action: #selector(shareButton))
         
         willShowToken = NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: OperationQueue.main, using: { [weak self] (noti) in guard let strongSelf = self else {return}
             

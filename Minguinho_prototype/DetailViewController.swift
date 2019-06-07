@@ -16,12 +16,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var noteContent: UITextView!
     
     var note: Note?
-    
+    var index: IndexPath = []
     
     @IBOutlet weak var recordButton: MDCFloatingButton!
     
     @objc func shareButton() {
-        print("Share button clicked")
         guard let note = note?.content else {
             print("no item to share")
             return
@@ -41,7 +40,21 @@ class DetailViewController: UIViewController {
         recordButton.setElevation(ShadowElevation(rawValue: 6), for: .normal)
         recordButton.setBackgroundColor(UIColor(red: 0, green: 144/255,  blue: 81/255, alpha: 1))
         
+        self.noteTitle.text = note?.title
+        self.noteAlbum.text = note?.album
+        self.noteContent.text = note?.content
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        DataManager.shared.noteList[index.row].title = noteTitle.text
+        DataManager.shared.noteList[index.row].album = noteAlbum.text
+        DataManager.shared.noteList[index.row].content = noteContent.text
+        
+        dismiss(animated: true, completion: nil)
+        super.viewWillDisappear(animated)
+        noteContent.resignFirstResponder()
     }
     
 

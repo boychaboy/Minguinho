@@ -52,6 +52,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "loadNote") {
+            guard let cell: UITableViewCell = sender as? UITableViewCell else {
+                return
+            }
+            guard let index: IndexPath = self.recentNotesTable.indexPath(for: cell) else {
+                return
+            }
+            guard let vc : DetailViewController = segue.destination as? DetailViewController else {
+                return
+            }
+            let target = DataManager.shared.noteList[index.row]
+            vc.note = target
+            vc.index = index
+            print("note send to vc at row for \(index.row)")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
