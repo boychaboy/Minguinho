@@ -87,9 +87,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         DataManager.shared.fetchNote()
+        deleteBlank()
         recentNotesTable.reloadData()
     }
-
+    
+    func deleteBlank(){
+        let target = DataManager.shared.noteList[0]
+        if target.title == "" {
+            //print("no title!")
+            DataManager.shared.deleteNote(target)
+            DataManager.shared.noteList.remove(at: 0)
+            //self.deleteRows(at: [indexPath], with: .fade)*/
+        }
+    }
 }
 
 

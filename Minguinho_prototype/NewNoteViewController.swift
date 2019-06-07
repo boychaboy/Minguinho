@@ -49,7 +49,6 @@ class NewNoteViewController: UIViewController {
             
             if let frame = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
                 let height = frame.cgRectValue.height
-                
                 var inset = strongSelf.noteContent.contentInset
                 inset.bottom = height
                 strongSelf.noteContent.contentInset = inset
@@ -78,7 +77,6 @@ class NewNoteViewController: UIViewController {
         let content = noteContent.text
         DataManager.shared.addNewNote(title, album, content)
         dismiss(animated: true, completion: nil)
-        
         super.viewWillDisappear(animated)
         noteTitle.resignFirstResponder()
     }
