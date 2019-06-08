@@ -92,12 +92,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func deleteBlank(){
-        let target = DataManager.shared.noteList[0]
-        if target.title == "" {
-            //print("no title!")
-            DataManager.shared.deleteNote(target)
-            DataManager.shared.noteList.remove(at: 0)
-            //self.deleteRows(at: [indexPath], with: .fade)*/
+        if DataManager.shared.noteList.count > 0 {
+            let target = DataManager.shared.noteList[0]
+            if target.title == "" {
+                //print("no title!")
+                DataManager.shared.deleteNote(target)
+                DataManager.shared.noteList.remove(at: 0)
+                //self.deleteRows(at: [indexPath], with: .fade)*/
+            }
         }
     }
 }

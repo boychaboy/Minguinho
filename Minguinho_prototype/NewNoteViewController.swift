@@ -18,7 +18,7 @@ class NewNoteViewController: UIViewController {
     var willShowToken: NSObjectProtocol?
     var willHideToken: NSObjectProtocol?
     
-    let textStorage = MarklightTextStorage()
+//    let textStorage = MarklightTextStorage()
     
     deinit {
         if let token = willShowToken {
@@ -48,11 +48,11 @@ class NewNoteViewController: UIViewController {
         // Do any additional setup after loading the view.
         //self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.action, target: self, action: #selector(shareButton))
         
-        textStorage.addLayoutManager(noteContent.layoutManager)
+        /*textStorage.addLayoutManager(noteContent.layoutManager)
         let string = self.textStorage.string
         let attributedString = NSAttributedString(string: string)
         self.noteContent.attributedText = attributedString
-        self.textStorage.append(attributedString)
+        self.textStorage.append(attributedString)*/
         
         willShowToken = NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: OperationQueue.main, using: { [weak self] (noti) in guard let strongSelf = self else {return}
             
@@ -83,9 +83,9 @@ class NewNoteViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         let title = noteTitle.text
         let album = noteAlbum.text
-        //let content = noteContent.text
+        let content = noteContent.text
         
-        let content = self.textStorage.string
+        //let content = self.textStorage.string
         DataManager.shared.addNewNote(title, album, content)
         dismiss(animated: true, completion: nil)
         super.viewWillDisappear(animated)
