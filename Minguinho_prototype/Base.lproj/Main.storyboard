@@ -132,6 +132,7 @@
                                         <connections>
                                             <outlet property="albumImage" destination="wwH-6h-v1M" id="fMb-eq-HVW"/>
                                             <outlet property="albumName" destination="4TN-fV-L6c" id="NO1-HI-yTr"/>
+                                            <segue destination="6By-k6-Z9w" kind="show" identifier="showAlbum" id="uel-Q2-68E"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -139,6 +140,12 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Egt-mD-CMe" customClass="MDCFloatingButton">
                                 <rect key="frame" x="370" y="774" width="24" height="24"/>
                                 <state key="normal" image="plus"/>
+                                <connections>
+                                    <segue destination="NSK-EF-sub" kind="presentation" id="KDT-WI-F9o">
+                                        <segue key="commit" inheritsFrom="parent" id="cyR-Cg-mOJ"/>
+                                        <segue key="preview" inheritsFrom="commit" id="h3t-AF-aRg"/>
+                                    </segue>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -160,7 +167,132 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nvY-oo-6hD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1552" y="567"/>
+            <point key="canvasLocation" x="1296" y="532"/>
+        </scene>
+        <!--Album Detail View Controller-->
+        <scene sceneID="QGJ-xJ-d4a">
+            <objects>
+                <viewController id="6By-k6-Z9w" customClass="AlbumDetailViewController" customModule="Minguinho_prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kwb-Ky-QM4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VT3-AZ-8tr">
+                                <rect key="frame" x="20" y="100" width="374" height="36"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QqI-wd-j6h">
+                                <rect key="frame" x="20" y="147" width="374" height="374"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="374" id="u4r-Cu-q9A"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uDD-ty-C53">
+                                <rect key="frame" x="19" y="529" width="375" height="333"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Ax9-Kf-EUp">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ax9-Kf-EUp" id="mPO-4Q-gGa">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fb7-nJ-d8u" customClass="MDCFloatingButton">
+                                <rect key="frame" x="374" y="824" width="20" height="22"/>
+                                <state key="normal" image="edit-20"/>
+                                <connections>
+                                    <segue destination="NSK-EF-sub" kind="presentation" id="EZE-sd-VRR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dCf-Bf-RDg" firstAttribute="trailing" secondItem="fb7-nJ-d8u" secondAttribute="trailing" constant="20" id="91d-bl-CS6"/>
+                            <constraint firstItem="dCf-Bf-RDg" firstAttribute="trailing" secondItem="uDD-ty-C53" secondAttribute="trailing" constant="20" id="NOr-tH-zXq"/>
+                            <constraint firstItem="dCf-Bf-RDg" firstAttribute="trailing" secondItem="QqI-wd-j6h" secondAttribute="trailing" constant="20" id="NQp-QF-uvw"/>
+                            <constraint firstItem="VT3-AZ-8tr" firstAttribute="leading" secondItem="dCf-Bf-RDg" secondAttribute="leading" constant="20" id="SVb-hu-6RG"/>
+                            <constraint firstAttribute="bottom" secondItem="fb7-nJ-d8u" secondAttribute="bottom" constant="50" id="bSM-Rk-61n"/>
+                            <constraint firstItem="uDD-ty-C53" firstAttribute="bottom" secondItem="dCf-Bf-RDg" secondAttribute="bottom" id="f2p-HN-n8Z"/>
+                            <constraint firstItem="VT3-AZ-8tr" firstAttribute="top" secondItem="dCf-Bf-RDg" secondAttribute="top" constant="12" id="hfy-mu-OlI"/>
+                            <constraint firstItem="QqI-wd-j6h" firstAttribute="leading" secondItem="dCf-Bf-RDg" secondAttribute="leading" constant="20" id="i0n-Sf-qcr"/>
+                            <constraint firstItem="QqI-wd-j6h" firstAttribute="top" secondItem="VT3-AZ-8tr" secondAttribute="bottom" constant="11" id="pOU-QV-HrB"/>
+                            <constraint firstItem="uDD-ty-C53" firstAttribute="leading" secondItem="dCf-Bf-RDg" secondAttribute="leading" constant="19" id="rHU-45-OIu"/>
+                            <constraint firstItem="dCf-Bf-RDg" firstAttribute="trailing" secondItem="VT3-AZ-8tr" secondAttribute="trailing" constant="20" id="v2m-bQ-0gm"/>
+                            <constraint firstItem="uDD-ty-C53" firstAttribute="top" secondItem="QqI-wd-j6h" secondAttribute="bottom" constant="8" id="zlg-Uh-VM6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dCf-Bf-RDg"/>
+                    </view>
+                    <connections>
+                        <outlet property="albumName" destination="VT3-AZ-8tr" id="h6I-Bd-4vf"/>
+                        <outlet property="editButton" destination="fb7-nJ-d8u" id="IOX-uU-70M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2hD-zg-T1Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1633" y="1195"/>
+        </scene>
+        <!--Add Album View Controller-->
+        <scene sceneID="9eQ-00-Qut">
+            <objects>
+                <viewController id="NSK-EF-sub" customClass="AddAlbumViewController" customModule="Minguinho_prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EQf-Yp-QF5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJB-Ke-Upe">
+                                <rect key="frame" x="20" y="156" width="374" height="374"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sCn-yN-ler">
+                                <rect key="frame" x="20" y="118" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="doneButton:" destination="NSK-EF-sub" eventType="editingDidEndOnExit" id="VHA-6R-5WT"/>
+                                    <outlet property="delegate" destination="NSK-EF-sub" id="dWj-0P-Qi8"/>
+                                </connections>
+                            </textField>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5En-Tj-6Sd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="wvH-w3-KvS">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="azx-q0-yZL">
+                                            <connections>
+                                                <action selector="cancelButton:" destination="NSK-EF-sub" id="MQe-mJ-8ld"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="M7b-yf-efB">
+                                            <connections>
+                                                <action selector="doneButton:" destination="NSK-EF-sub" id="dwZ-Bd-75t"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5hH-nI-dVA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cxx-Jj-wLH"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="300" height="400"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="albumImage" destination="yJB-Ke-Upe" id="t77-j4-1Fb"/>
+                        <outlet property="albumName" destination="sCn-yN-ler" id="87B-12-P54"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IxQ-Un-jHb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2158" y="485"/>
         </scene>
         <!--New Note View Controller-->
         <scene sceneID="J07-xZ-flK">
@@ -9187,7 +9319,11 @@ CBu4AAgbwAAIG8MACBvIAAgb0AAIG9MACBvlAAgb6AAIG+0AAAAAAAAEAQAAAAAAAABtAAAAAAAAAAAA
 AAAAAAgb7w
 </mutableData>
         </image>
+        <image name="edit-20" width="20" height="20"/>
         <image name="list" width="29" height="29"/>
         <image name="plus" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="EZE-sd-VRR"/>
+    </inferredMetricsTieBreakers>
 </document>
