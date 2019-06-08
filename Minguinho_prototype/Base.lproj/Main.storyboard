@@ -90,6 +90,78 @@
             </objects>
             <point key="canvasLocation" x="1997.1014492753625" y="-169.41964285714286"/>
         </scene>
+        <!--Album-->
+        <scene sceneID="K8e-4i-Dyb">
+            <objects>
+                <viewController id="bBs-ok-zxR" customClass="AlbumViewController" customModule="Minguinho_prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WBP-mG-ODa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PQF-a9-yTm">
+                                <rect key="frame" x="0.0" y="88" width="414" height="686"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Kh-Ae-4pv">
+                                    <size key="itemSize" width="193" height="208"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="albumView" id="ofF-PX-cWj" customClass="AlbumCollectionViewCell" customModule="Minguinho_prototype" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwH-6h-v1M">
+                                                    <rect key="frame" x="20" y="11" width="160" height="160"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4TN-fV-L6c">
+                                                    <rect key="frame" x="20" y="170" width="160" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </view>
+                                        <size key="customSize" width="200" height="200"/>
+                                        <connections>
+                                            <outlet property="albumImage" destination="wwH-6h-v1M" id="fMb-eq-HVW"/>
+                                            <outlet property="albumName" destination="4TN-fV-L6c" id="NO1-HI-yTr"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Egt-mD-CMe" customClass="MDCFloatingButton">
+                                <rect key="frame" x="370" y="774" width="24" height="24"/>
+                                <state key="normal" image="plus"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PQF-a9-yTm" firstAttribute="leading" secondItem="D91-ld-fxi" secondAttribute="leading" id="0md-Wd-PPE"/>
+                            <constraint firstItem="Egt-mD-CMe" firstAttribute="bottom" secondItem="D91-ld-fxi" secondAttribute="bottom" constant="-15" id="B4s-NA-Qsm"/>
+                            <constraint firstItem="D91-ld-fxi" firstAttribute="trailing" secondItem="Egt-mD-CMe" secondAttribute="trailing" constant="20" id="FHc-lP-yld"/>
+                            <constraint firstItem="PQF-a9-yTm" firstAttribute="trailing" secondItem="D91-ld-fxi" secondAttribute="trailing" id="Ir4-Om-DwS"/>
+                            <constraint firstItem="PQF-a9-yTm" firstAttribute="top" secondItem="D91-ld-fxi" secondAttribute="top" id="f5m-BS-5er"/>
+                            <constraint firstItem="Egt-mD-CMe" firstAttribute="top" secondItem="PQF-a9-yTm" secondAttribute="bottom" id="pwt-7C-JKK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="D91-ld-fxi"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Album" image="album" id="5dz-hE-PL3"/>
+                    <connections>
+                        <outlet property="addAlbum" destination="Egt-mD-CMe" id="Qbu-At-XF7"/>
+                        <outlet property="albumCollectionView" destination="PQF-a9-yTm" id="u37-9S-bha"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nvY-oo-6hD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1552" y="567"/>
+        </scene>
         <!--New Note View Controller-->
         <scene sceneID="J07-xZ-flK">
             <objects>
@@ -235,54 +307,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="38d-wL-b0E"/>
-                        <segue destination="Aa6-RZ-JGq" kind="relationship" relationship="viewControllers" id="dyd-n1-1Rq"/>
+                        <segue destination="bBs-ok-zxR" kind="relationship" relationship="viewControllers" id="gqg-4L-n8K"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbx-xN-O2I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1072" y="-185"/>
-        </scene>
-        <!--Album-->
-        <scene sceneID="lO3-05-CSJ">
-            <objects>
-                <collectionViewController id="Aa6-RZ-JGq" customClass="AlbumCollectionViewController" customModule="Minguinho_prototype" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="8Mj-gi-MSC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Iwu-VF-KeS">
-                            <size key="itemSize" width="178" height="178"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="albumView" id="aDU-x4-NAU">
-                                <rect key="frame" x="0.0" y="0.0" width="178" height="178"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="178" height="178"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gw2-Xt-Q9n">
-                                            <rect key="frame" x="10" y="10" width="156" height="156"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                </view>
-                                <color key="tintColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="Aa6-RZ-JGq" id="qyA-MQ-JcJ"/>
-                            <outlet property="delegate" destination="Aa6-RZ-JGq" id="y0b-Pt-fmW"/>
-                        </connections>
-                    </collectionView>
-                    <tabBarItem key="tabBarItem" title="Album" image="album" id="Yzf-xK-6GT"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KTJ-6t-ShN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1573.913043478261" y="591.96428571428567"/>
         </scene>
     </scenes>
     <resources>
