@@ -23,7 +23,7 @@ class AddAlbumViewController: UIViewController, UITextFieldDelegate, UIImagePick
         picker.sourceType = .photoLibrary
         picker.allowsEditing = true
         picker.delegate = self
-        present(picker, animated: false, completion: nil)
+        present(picker, animated: true, completion: nil)
     }
     
     @IBAction func cancelButton(_ sender: Any) {
@@ -41,6 +41,7 @@ class AddAlbumViewController: UIViewController, UITextFieldDelegate, UIImagePick
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         albumName.becomeFirstResponder()
     }
     
@@ -52,6 +53,7 @@ class AddAlbumViewController: UIViewController, UITextFieldDelegate, UIImagePick
         photoButton.setElevation(ShadowElevation(rawValue: 6), for: .normal)
         photoButton.setBackgroundColor(UIColor(red: 142/255, green: 250/255,  blue: 0/255, alpha: 1))
         
+    
         // Do any additional setup after loading the view.
     }
     
