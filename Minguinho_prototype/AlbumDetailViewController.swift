@@ -9,10 +9,13 @@
 import UIKit
 import MaterialComponents.MaterialButtons
 
-class AlbumDetailViewController: UIViewController {
+class AlbumDetailViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     var album: Album?
     var index: IndexPath = []
+    var albumRow : Int = 0
+    var albumCnt : Int = 0
+    var albumNotes = [Note]()
     
     @IBOutlet weak var albumName: UITextField!
     
@@ -27,6 +30,28 @@ class AlbumDetailViewController: UIViewController {
         DataManager.shared.albumList.remove(at: index.row)
         self.dismiss(animated: true, completion: nil)
         performSegue(withIdentifier: "unwind", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let cnt = DataManager.shared.noteList.count
+        for i in 0..<cnt {
+            if DataManager.shared.noteList[i].album == album?.albumName
+            {
+                albumCnt = albumCnt + 1
+                albumNotes.append(DataManager.shared.noteList[i])
+            }
+        }
+        albumRow = 0
+        print(albumCnt)
+        return albumCnt
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "albumNoteList", for: indexPath)
+        let target = albumNotes[indexPath.row]
+        cell.textLabel?.text = target.title
+        
+        return cell
     }
     
     override func viewDidLoad() {

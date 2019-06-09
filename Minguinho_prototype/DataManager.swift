@@ -49,6 +49,28 @@ class DataManager {
         }
     }
     
+    func searchEntityByKey(_ entity : String, _ key : String, _ val : String) -> Bool {
+        let managedContext = DataManager.shared.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        var flag: Bool = false
+        do{
+            let result = try managedContext.fetch(fetchRequest)
+            for data in result as! [NSManagedObject] {
+                if let text = (data.value(forKey: key)){
+                    let text2 = text as! String
+                    if text2 == val{
+                        flag = true
+                    }
+                }
+            }
+        }
+        catch {
+            print("Failed")
+        }
+        return flag
+    }
+    
+    
     func addNewNote(_ title: String?, _ album: String?, _ content: String?) {
         let newNote = Note(context: mainContext)
         newNote.title = title
@@ -65,6 +87,7 @@ class DataManager {
         newAlbum.albumDate = Date()
         saveContext()
     }
+    
     
     
     func deleteNote(_ note: Note?){
