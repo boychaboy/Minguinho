@@ -13,7 +13,6 @@ class AlbumDetailViewController: UIViewController,UITableViewDelegate, UITableVi
     
     var album: Album?
     var index: IndexPath = []
-    var albumRow : Int = 0
     var albumCnt : Int = 0
     var albumNotes = [Note]()
     
@@ -33,24 +32,13 @@ class AlbumDetailViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let cnt = DataManager.shared.noteList.count
-        for i in 0..<cnt {
-            if DataManager.shared.noteList[i].album == album?.albumName
-            {
-                albumCnt = albumCnt + 1
-                albumNotes.append(DataManager.shared.noteList[i])
-            }
-        }
-        albumRow = 0
-        print(albumCnt)
-        return albumCnt
+        
+        return albumNotes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "albumNoteList", for: indexPath)
-        let target = albumNotes[indexPath.row]
-        cell.textLabel?.text = target.title
-        
+        cell.textLabel?.text = albumNotes[indexPath.row].title!
         return cell
     }
     
@@ -68,6 +56,16 @@ class AlbumDetailViewController: UIViewController,UITableViewDelegate, UITableVi
                 self.albumImage.image = getImage
         }
         
+        albumCnt = 0
+        let cnt = DataManager.shared.noteList.count
+        for i in 0..<cnt {
+            if DataManager.shared.noteList[i].album == album?.albumName
+            {
+                albumCnt = albumCnt + 1
+                albumNotes.append(DataManager.shared.noteList[i])
+            }
+        }
+        print(albumNotes.count)
     }
     
     /*
