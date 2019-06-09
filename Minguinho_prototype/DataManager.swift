@@ -19,6 +19,7 @@ class DataManager {
     }
     
     var noteList = [Note]()
+    var albumList = [Album]()
     
     func fetchNote() {
         let request: NSFetchRequest<Note> = Note.fetchRequest()
@@ -34,15 +35,30 @@ class DataManager {
         }
     }
     
+    func fetchAlbum() {
+        let request: NSFetchRequest<Album> = Album.fetchRequest()
+        
+        let sortByDateDesc = NSSortDescriptor(key: "albumDate", ascending: false)
+        request.sortDescriptors = [sortByDateDesc]
+        
+        do {
+            albumList = try mainContext.fetch(request)
+        }
+        catch{
+            print(error)
+        }
+    }
+    
     func addNewNote(_ title: String?, _ album: String?, _ content: String?) {
         let newNote = Note(context: mainContext)
         newNote.title = title
         newNote.album = album
         newNote.content = content
         newNote.date = Date()
-        
         saveContext()
     }
+    
+    
     
     func deleteNote(_ note: Note?){
         if let note = note {
@@ -50,6 +66,14 @@ class DataManager {
             saveContext()
         }
     }
+    
+    func deleteAlbum(_ album: Album?){
+        if let album = album {
+            mainContext.delete(album)
+            saveContext()
+        }
+    }
+
     
     lazy var persistentContainer: NSPersistentContainer = {
 

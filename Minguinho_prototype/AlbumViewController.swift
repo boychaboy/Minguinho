@@ -15,15 +15,13 @@ class AlbumViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     @IBOutlet weak var addAlbum: MDCFloatingButton!
     
-    var albumList = [Album]()
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return albumList.count
+        return DataManager.shared.albumList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumView", for: indexPath) as! AlbumCollectionViewCell
-        let album = albumList[indexPath.row]
+        let album = DataManager.shared.albumList[indexPath.row]
         cell.albumName.text = album.albumName
         return cell
     }
@@ -39,9 +37,9 @@ class AlbumViewController: UIViewController, UICollectionViewDataSource, UIColle
             guard let vc : AlbumDetailViewController = segue.destination as? AlbumDetailViewController else {
                 return
             }
-            let target = albumList[index.row]
+            let target = DataManager.shared.albumList[index.row]
             vc.album = target
-            print(target.albumName)
+            vc.index = index
             print("album send to vc at row for \(index.row)")
         }
     }
@@ -57,15 +55,6 @@ class AlbumViewController: UIViewController, UICollectionViewDataSource, UIColle
         addAlbum.setElevation(ShadowElevation(rawValue: 6), for: .normal)
         addAlbum.setBackgroundColor(UIColor(red: 142/255, green: 250/255,  blue: 0/255, alpha: 1))
         // Do any additional setup after loading the view.
-        
-        var list = Album(name: "새 앨범")
-        albumList.append(list)
-        
-        list = Album(name: "새 앨범2")
-        albumList.append(list)
-        
-        list = Album(name: "새 앨범3")
-        albumList.append(list)
         
     }
     

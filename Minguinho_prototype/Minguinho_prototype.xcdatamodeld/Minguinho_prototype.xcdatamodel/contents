@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.98" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Album" representedClassName="Album" syncable="YES" codeGenerationType="class">
+        <attribute name="albumDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="albumImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="albumName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="album" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
@@ -8,5 +13,6 @@
     </entity>
     <elements>
         <element name="Note" positionX="2614.84375" positionY="-2441.1328125" width="114.51953125" height="103"/>
+        <element name="Album" positionX="2646" positionY="-2376" width="128" height="90"/>
     </elements>
 </model>

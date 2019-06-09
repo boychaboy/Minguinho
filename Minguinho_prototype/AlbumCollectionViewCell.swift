@@ -12,5 +12,4 @@ class AlbumCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var albumImage: UIImageView!
     @IBOutlet weak var albumName: UITextField!
     
-    
 }

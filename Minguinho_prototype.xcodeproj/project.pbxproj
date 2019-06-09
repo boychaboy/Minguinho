@@ -18,7 +18,6 @@
 		077B5A1022A94B3E0019573C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B5A0F22A94B3E0019573C /* DetailViewController.swift */; };
 		07D3E55622ABC57F00EAD179 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3E55522ABC57F00EAD179 /* AlbumViewController.swift */; };
 		07D3E55822ABC5C300EAD179 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3E55722ABC5C300EAD179 /* AlbumCollectionViewCell.swift */; };
-		07D3E55C22ABE2CF00EAD179 /* AlbumList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3E55B22ABE2CF00EAD179 /* AlbumList.swift */; };
 		07D3E55E22ABEFB900EAD179 /* AddAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3E55D22ABEFB900EAD179 /* AddAlbumViewController.swift */; };
 		07D3E56022ABF41B00EAD179 /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3E55F22ABF41B00EAD179 /* AlbumDetailViewController.swift */; };
 		1E3C1410DEAD83AE87923D6E /* Pods_Minguinho_prototype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A342503172DEBD2B881056D /* Pods_Minguinho_prototype.framework */; };
@@ -38,7 +37,6 @@
 		077B5A0F22A94B3E0019573C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		07D3E55522ABC57F00EAD179 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		07D3E55722ABC5C300EAD179 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
-		07D3E55B22ABE2CF00EAD179 /* AlbumList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumList.swift; sourceTree = "<group>"; };
 		07D3E55D22ABEFB900EAD179 /* AddAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlbumViewController.swift; sourceTree = "<group>"; };
 		07D3E55F22ABF41B00EAD179 /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
 		4A342503172DEBD2B881056D /* Pods_Minguinho_prototype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Minguinho_prototype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,13 +83,12 @@
 				075EC28622A8CDA8000F36A0 /* LaunchScreen.storyboard */,
 				075EC28922A8CDA8000F36A0 /* Info.plist */,
 				075EC28122A8CDA6000F36A0 /* Minguinho_prototype.xcdatamodeld */,
+				076F7B4D22A9141F00721138 /* DataManager.swift */,
 				075EC27C22A8CDA6000F36A0 /* ViewController.swift */,
 				076F7B4B22A8FC7C00721138 /* NewNoteViewController.swift */,
-				076F7B4D22A9141F00721138 /* DataManager.swift */,
 				077B5A0F22A94B3E0019573C /* DetailViewController.swift */,
 				07D3E55522ABC57F00EAD179 /* AlbumViewController.swift */,
 				07D3E55722ABC5C300EAD179 /* AlbumCollectionViewCell.swift */,
-				07D3E55B22ABE2CF00EAD179 /* AlbumList.swift */,
 				07D3E55D22ABEFB900EAD179 /* AddAlbumViewController.swift */,
 				07D3E55F22ABF41B00EAD179 /* AlbumDetailViewController.swift */,
 			);
@@ -238,7 +235,6 @@
 				077B5A1022A94B3E0019573C /* DetailViewController.swift in Sources */,
 				075EC28322A8CDA6000F36A0 /* Minguinho_prototype.xcdatamodeld in Sources */,
 				07D3E55E22ABEFB900EAD179 /* AddAlbumViewController.swift in Sources */,
-				07D3E55C22ABE2CF00EAD179 /* AlbumList.swift in Sources */,
 				075EC27B22A8CDA6000F36A0 /* AppDelegate.swift in Sources */,
 				07D3E55622ABC57F00EAD179 /* AlbumViewController.swift in Sources */,
 			);
