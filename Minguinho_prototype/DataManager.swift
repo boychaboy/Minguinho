@@ -58,6 +58,13 @@ class DataManager {
         saveContext()
     }
     
+    func addNewAlbum(_ title: String?, _ image: Data!){
+        let newAlbum = Album(context: mainContext)
+        newAlbum.albumName = title
+        newAlbum.albumImage = image
+        newAlbum.albumDate = Date()
+        saveContext()
+    }
     
     
     func deleteNote(_ note: Note?){

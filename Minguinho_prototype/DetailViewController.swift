@@ -42,8 +42,6 @@ class DetailViewController: UIViewController {
         recordButton.setElevation(ShadowElevation(rawValue: 6), for: .normal)
         recordButton.setBackgroundColor(UIColor(red: 0, green: 144/255,  blue: 81/255, alpha: 1))
         
-        
-        
         self.noteTitle.text = note?.title
         self.noteAlbum.text = note?.album
         //self.noteContent.text = note?.content

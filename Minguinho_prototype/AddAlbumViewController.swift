@@ -35,6 +35,8 @@ class AddAlbumViewController: UIViewController, UITextFieldDelegate, UIImagePick
         let title = albumName.text
         //let content = self.textStorage.string
 //        DataManager.shared.addNewAlbum(title, Image)
+        let imageData = NSData(data: (albumImage.image?.jpegData(compressionQuality: 0.3))!)
+        DataManager.shared.addNewAlbum(title, imageData as Data)
         albumName.resignFirstResponder()
         dismiss(animated: true, completion: nil)
         super.viewWillDisappear(true)

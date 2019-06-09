@@ -16,11 +16,33 @@ class AlbumDetailViewController: UIViewController {
     
     @IBOutlet weak var albumName: UITextField!
     
+    @IBOutlet weak var deleteAlbum: MDCFloatingButton!
+    
+    @IBOutlet weak var albumImage: UIImageView!
+    
+    @IBOutlet weak var albumList: UITableView!
+    
+    @IBAction func deleteAlbumAction(_ sender: Any) {
+        DataManager.shared.deleteAlbum(album)
+        DataManager.shared.albumList.remove(at: index.row)
+        self.dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "unwind", sender: self)
+    }
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-        self.albumName.text = album?.albumName
+        super.viewDidLoad()
+    
+        let deleteImage = UIImage(named: "211835-512-29")?.withRenderingMode(.alwaysOriginal)
+        deleteAlbum.setImage(deleteImage, for: .normal)
+        deleteAlbum.setElevation(ShadowElevation(rawValue: 6), for: .normal)
+        deleteAlbum.setBackgroundColor(UIColor(red: 255/255, green: 0/255,  blue: 0/255, alpha: 1))
         // Do any additional setup after loading the view.
+        self.albumName.text = album?.albumName
+        if let getImage = UIImage(data: (album!.albumImage)!){
+                self.albumImage.image = getImage
+        }
+        
     }
     
     /*
