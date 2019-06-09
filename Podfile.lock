@@ -1,0 +1,56 @@
+PODS:
+  - MarkdownView (1.5.0)
+  - Marklight (1.4.0)
+  - MaterialComponents/AnimationTiming (84.5.0)
+  - MaterialComponents/Buttons (84.5.0):
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/Ripple
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Shapes
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
+  - MaterialComponents/Ink (84.5.0):
+    - MaterialComponents/private/Math
+  - MaterialComponents/private/Application (84.5.0)
+  - MaterialComponents/private/Math (84.5.0)
+  - MaterialComponents/Ripple (84.5.0):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/private/Math
+  - MaterialComponents/ShadowElevations (84.5.0)
+  - MaterialComponents/ShadowLayer (84.5.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/Shapes (84.5.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+  - MaterialComponents/Typography (84.5.0):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+  - MDFInternationalization (2.0.0)
+  - MDFTextAccessibility (2.0.0)
+
+DEPENDENCIES:
+  - MarkdownView
+  - Marklight
+  - MaterialComponents/Buttons
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MarkdownView
+    - Marklight
+    - MaterialComponents
+    - MDFInternationalization
+    - MDFTextAccessibility
+
+SPEC CHECKSUMS:
+  MarkdownView: 5bbee438c823db1cd189002d44c84fa909b3a896
+  Marklight: 2489d376cd3d3e7b1d109cd7d6d248fd9b8e0bee
+  MaterialComponents: 4f1d0258d14aaf47215c2d710d3b5d915e370622
+  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
+  MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
+
+PODFILE CHECKSUM: cc6ee542cb532d113256907cdf8671747d4e30ff
+
+COCOAPODS: 1.7.1

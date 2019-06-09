@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/Pods-Minguinho_prototype/Pods-Minguinho_prototype-frameworks.sh
+${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework
+${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework
+${BUILT_PRODUCTS_DIR}/MarkdownView/MarkdownView.framework
+${BUILT_PRODUCTS_DIR}/Marklight/Marklight.framework
+${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework

@@ -1,0 +1,6 @@
+framework module Pods_Minguinho_prototype {
+  umbrella header "Pods-Minguinho_prototype-umbrella.h"
+
+  export *
+  module * { export * }
+}
