@@ -39,12 +39,15 @@ class AlbumDetailViewController: UIViewController,UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "albumNoteList", for: indexPath)
         cell.textLabel?.text = albumNotes[indexPath.row].title!
+        cell.detailTextLabel?.text = albumNotes[indexPath.row].content!
         return cell
     }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        albumList.delegate = self
+        albumList.dataSource = self
     
         let deleteImage = UIImage(named: "211835-512-29")?.withRenderingMode(.alwaysOriginal)
         deleteAlbum.setImage(deleteImage, for: .normal)
@@ -65,7 +68,31 @@ class AlbumDetailViewController: UIViewController,UITableViewDelegate, UITableVi
                 albumNotes.append(DataManager.shared.noteList[i])
             }
         }
-        print(albumNotes.count)
+//        print(albumNotes.count)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DataManager.shared.fetchNote()
+        albumList.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "loadNoteFromAlbum") {
+            guard let cell: UITableViewCell = sender as? UITableViewCell else {
+                return
+            }
+            guard let index: IndexPath = self.albumList.indexPath(for: cell) else {
+                return
+            }
+            guard let vc : DetailViewController = segue.destination as? DetailViewController else {
+                return
+            }
+            let target = DataManager.shared.noteList[index.row]
+            vc.note = target
+            vc.index = index
+//            print("note send to vc at row for \(index.row)")
+        }
     }
     
     /*

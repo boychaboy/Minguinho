@@ -84,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1997.1014492753625" y="-169.41964285714286"/>
+            <point key="canvasLocation" x="1829" y="-547"/>
         </scene>
         <!--Album-->
         <scene sceneID="K8e-4i-Dyb">
@@ -202,7 +202,7 @@
                                 <rect key="frame" x="19" y="510" width="375" height="352"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="albumNoteList" textLabel="Jyw-Bq-UP3" style="IBUITableViewCellStyleDefault" id="Ax9-Kf-EUp">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="albumNoteList" textLabel="Jyw-Bq-UP3" detailTextLabel="6Nt-QI-pg3" style="IBUITableViewCellStyleValue1" id="Ax9-Kf-EUp">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ax9-Kf-EUp" id="mPO-4Q-gGa">
@@ -210,14 +210,24 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jyw-Bq-UP3">
-                                                    <rect key="frame" x="20" y="0.0" width="335" height="43.5"/>
+                                                    <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Nt-QI-pg3">
+                                                    <rect key="frame" x="322" y="17" width="33" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <color key="textColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Bh2-UC-fJe" kind="show" identifier="loadNoteFromAlbum" id="6ZO-nc-00o"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -263,7 +273,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hD-zg-T1Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JXJ-dq-C2g" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="344.92753623188406" y="1076.7857142857142"/>
+            <point key="canvasLocation" x="2170" y="929"/>
         </scene>
         <!--Add Album View Controller-->
         <scene sceneID="9eQ-00-Qut">
@@ -335,7 +345,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IxQ-Un-jHb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2538" y="884"/>
+            <point key="canvasLocation" x="3729" y="781"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zGc-76-3Hq">
@@ -351,7 +361,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWk-Hn-Y5i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2841" y="153"/>
+            <point key="canvasLocation" x="3565" y="113"/>
         </scene>
         <!--New Note View Controller-->
         <scene sceneID="J07-xZ-flK">
@@ -466,7 +476,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mf-rK-NsM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3801" y="-547"/>
+            <point key="canvasLocation" x="2307" y="166"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OU1-kt-EDH">
@@ -9389,4 +9399,7 @@ AAAAAAgb7w
         <image name="photo" width="29" height="29"/>
         <image name="plus" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="6ZO-nc-00o"/>
+    </inferredMetricsTieBreakers>
 </document>

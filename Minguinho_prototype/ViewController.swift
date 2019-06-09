@@ -67,7 +67,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let target = DataManager.shared.noteList[index.row]
             vc.note = target
             vc.index = index
-            print("note send to vc at row for \(index.row)")
+//            print("note send to vc at row for \(index.row)")
         }
     }
 
