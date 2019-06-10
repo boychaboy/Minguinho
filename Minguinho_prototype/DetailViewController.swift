@@ -34,7 +34,7 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
     var note: Note?
 //    var index: IndexPath = []
     var indexRow: Int = 0
-    let textStorage = MarklightTextStorage()
+//    let textStorage = MarklightTextStorage()
     
     var recommend = [String]()
     
@@ -58,6 +58,7 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         recommendView.delegate = self
         recommendView.dataSource = self
+//        noteContent.delegate = self
 //        let recordImage = UIImage(named: "record")?.withRenderingMode(.alwaysOriginal)
 //        recordButton.setImage(recordImage, for: .normal)
 //        recordButton.setElevation(ShadowElevation(rawValue: 6), for: .normal)
@@ -65,13 +66,13 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
 //        
         self.noteTitle.text = note?.title
         self.noteAlbum.text = note?.album
-        //self.noteContent.text = note?.content
+        self.noteContent.text = note?.content
         
-        textStorage.addLayoutManager(noteContent.layoutManager)
-        let string = (note?.content)!
-        let attributedString = NSAttributedString(string: string)
-        self.noteContent.attributedText = attributedString
-        self.textStorage.append(attributedString)
+//        textStorage.addLayoutManager(noteContent.layoutManager)
+//        let string = (note?.content)!
+//        let attributedString = NSAttributedString(string: string)
+//        self.noteContent.attributedText = attributedString
+//        self.textStorage.append(attributedString)
         
         willShowToken = NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: OperationQueue.main, using: { [weak self] (noti) in guard let strongSelf = self else {return}
             
@@ -108,7 +109,7 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         DataManager.shared.noteList[indexRow].title = noteTitle.text
         DataManager.shared.noteList[indexRow].album = noteAlbum.text
-        DataManager.shared.noteList[indexRow].content = self.textStorage.string
+        DataManager.shared.noteList[indexRow].content = noteContent.text
         
         DataManager.shared.saveContext()
         dismiss(animated: true, completion: nil)
@@ -138,7 +139,14 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(recommend[indexPath.row])
+        var text = self.noteContent.text
+        text = text! + recommend[indexPath.row]
+        self.noteContent.text = text
+        return
     }
+ 
+    
+    
     
     /*
     // MARK: - Navigation

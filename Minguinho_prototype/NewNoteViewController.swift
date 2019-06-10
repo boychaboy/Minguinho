@@ -113,6 +113,14 @@ class NewNoteViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(recommend[indexPath.row])
+        var text = self.noteContent.text
+        text = text! + recommend[indexPath.row]
+        self.noteContent.text = text
+        return
+    }
 
     //temporary
     func generateWords() {
