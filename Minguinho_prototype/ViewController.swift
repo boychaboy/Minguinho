@@ -10,9 +10,16 @@ import UIKit
 import MaterialComponents.MaterialButtons
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    
+    let impact = UIImpactFeedbackGenerator()
     @IBOutlet weak var recentNotesTable: UITableView!
     
     @IBOutlet weak var addNote: MDCFloatingButton!
+    
+    @IBAction func addNotePressed(_ sender: Any) {
+        impact.impactOccurred()
+    }
+    
     
     let formatter: DateFormatter = {
         let f = DateFormatter()
@@ -94,7 +101,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func deleteBlank(){
         if DataManager.shared.noteList.count > 0 {
             let target = DataManager.shared.noteList[0]
-            if target.title == "" {
+            if (target.title == "") && (target.album == "") && (target.content == "") {
                 //print("no title!")
                 DataManager.shared.deleteNote(target)
                 DataManager.shared.noteList.remove(at: 0)

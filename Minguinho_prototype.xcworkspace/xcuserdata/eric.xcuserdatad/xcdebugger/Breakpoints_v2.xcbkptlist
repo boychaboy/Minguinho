@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Minguinho_prototype/AlbumViewController.swift"
-            timestampString = "581884671.988775"
+            timestampString = "581889188.4681799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "deleteBlank()"
             landmarkType = "7">
          </BreakpointContent>

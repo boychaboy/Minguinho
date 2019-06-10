@@ -79,6 +79,13 @@ class AlbumDetailViewController: UIViewController,UITableViewDelegate, UITableVi
         albumList.reloadData()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        DataManager.shared.albumList[index.row].albumName = self.albumName.text
+        DataManager.shared.saveContext()
+        dismiss(animated: true, completion: nil)
+        super.viewWillDisappear(animated)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "loadNoteFromAlbum") {
             guard let cell: UITableViewCell = sender as? UITableViewCell else {

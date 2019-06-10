@@ -11,10 +11,16 @@ import MaterialComponents.MaterialButtons
 
 class AlbumViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    let impact = UIImpactFeedbackGenerator()
+    
     @IBOutlet weak var albumCollectionView: UICollectionView!
     
     @IBOutlet weak var addAlbum: MDCFloatingButton!
     @IBAction func unwind (segue : UIStoryboardSegue) {}
+    
+    @IBAction func addButtonPressed(_ sender: Any) {
+        impact.impactOccurred()
+    }
     
     let formatter: DateFormatter = {
         let d = DateFormatter()
