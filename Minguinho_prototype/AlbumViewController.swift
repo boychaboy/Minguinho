@@ -38,8 +38,7 @@ class AlbumViewController: UIViewController, UICollectionViewDataSource, UIColle
 //        print(cell.albumName.text!)
         return cell
     }
-    
-    
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showAlbum") {
