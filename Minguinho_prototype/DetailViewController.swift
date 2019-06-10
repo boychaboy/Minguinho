@@ -17,7 +17,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var noteContent: UITextView!
     
     var note: Note?
-    var index: IndexPath = []
+//    var index: IndexPath = []
+    var indexRow: Int = 0
     let textStorage = MarklightTextStorage()
     
     @IBOutlet weak var recordButton: MDCFloatingButton!
@@ -57,9 +58,9 @@ class DetailViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         
-        DataManager.shared.noteList[index.row].title = noteTitle.text
-        DataManager.shared.noteList[index.row].album = noteAlbum.text
-        DataManager.shared.noteList[index.row].content = self.textStorage.string
+        DataManager.shared.noteList[indexRow].title = noteTitle.text
+        DataManager.shared.noteList[indexRow].album = noteAlbum.text
+        DataManager.shared.noteList[indexRow].content = self.textStorage.string
         
         DataManager.shared.saveContext()
         dismiss(animated: true, completion: nil)

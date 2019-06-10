@@ -16,6 +16,13 @@ class AlbumViewController: UIViewController, UICollectionViewDataSource, UIColle
     @IBOutlet weak var addAlbum: MDCFloatingButton!
     @IBAction func unwind (segue : UIStoryboardSegue) {}
     
+    let formatter: DateFormatter = {
+        let d = DateFormatter()
+        d.dateStyle = .medium
+        d.dateFormat = "yyyy.MM"
+        return d
+    }()
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return DataManager.shared.albumList.count
     }
@@ -27,6 +34,7 @@ class AlbumViewController: UIViewController, UICollectionViewDataSource, UIColle
         if let albumImage = UIImage(data: (album.albumImage)!){
             cell.albumImage.image = albumImage
         }
+        cell.albumYear.text = formatter.string(for: album.albumDate)
 //        print(cell.albumName.text!)
         return cell
     }

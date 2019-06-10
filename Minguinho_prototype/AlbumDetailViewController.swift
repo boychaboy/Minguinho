@@ -15,6 +15,7 @@ class AlbumDetailViewController: UIViewController,UITableViewDelegate, UITableVi
     var index: IndexPath = []
     var albumCnt : Int = 0
     var albumNotes = [Note]()
+    var realIndex = [Int]()
     
     @IBOutlet weak var albumName: UITextField!
     
@@ -64,8 +65,9 @@ class AlbumDetailViewController: UIViewController,UITableViewDelegate, UITableVi
         for i in 0..<cnt {
             if DataManager.shared.noteList[i].album == album?.albumName
             {
-                albumCnt = albumCnt + 1
+                realIndex.append(i)
                 albumNotes.append(DataManager.shared.noteList[i])
+                albumCnt = albumCnt + 1
             }
         }
 //        print(albumNotes.count)
@@ -88,9 +90,10 @@ class AlbumDetailViewController: UIViewController,UITableViewDelegate, UITableVi
             guard let vc : DetailViewController = segue.destination as? DetailViewController else {
                 return
             }
-            let target = DataManager.shared.noteList[index.row]
+
+            let target = albumNotes[index.row]
             vc.note = target
-            vc.index = index
+            vc.indexRow = realIndex[index.row]
 //            print("note send to vc at row for \(index.row)")
         }
     }
