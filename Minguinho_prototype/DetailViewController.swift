@@ -10,7 +10,7 @@ import UIKit
 import Marklight
 import MaterialComponents.MaterialButtons
 
-class DetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class DetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextViewDelegate {
 
     
     var willShowToken: NSObjectProtocol?
@@ -21,6 +21,7 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var noteContent: UITextView!
 
     @IBOutlet weak var recommendView: UICollectionView!
+    
     
     deinit {
         if let token = willShowToken {
@@ -50,10 +51,23 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
         present(vc, animated: true, completion: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.noteContent.addObserver(self, forKeyPath: "selectedTextRange", options: NSKeyValueObservingOptions(rawValue: NSKeyValueObservingOptions.new.rawValue|NSKeyValueObservingOptions.old.rawValue), context: nil)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if((keyPath == "selectedTextRange")){
+            if let text = wordBeforeCursor(){
+                print(text)
+            }
+            else{
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.action, target: self, action: #selector(shareButton))
         
         recommendView.delegate = self
@@ -103,8 +117,13 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
         // Do any additional setup after loading the view.
         generateWords()
         noteContent.inputAccessoryView = recommendView
-        
+//        if let selectedRange = noteContent.selectedTextRange {
+//            let cursorPosition = noteContent.offset(from: noteContent.beginningOfDocument, to: selectedRange.start)
+//
+//            print("\(cursorPosition)")
+//        }
     }
+
     
     override func viewWillDisappear(_ animated: Bool) {
         
@@ -117,6 +136,8 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
         super.viewWillDisappear(animated)
         noteContent.resignFirstResponder()
     }
+    
+    
     
     func generateWords() {
         recommend.append("하와이")
@@ -146,8 +167,31 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
         return
     }
  
+    func textBeforeCursor() -> String? {
+        // get the cursor position
+        if let cursorRange = noteContent.selectedTextRange {
+            // get the position one character before the cursor start position
+            if let newPosition = noteContent.position(from: cursorRange.start, offset: -3) {
+                
+                let range = noteContent.textRange(from: newPosition, to: cursorRange.start)
+                return noteContent.text(in: range!)
+            }
+        }
+        return nil
+    }
     
-    
+    func wordBeforeCursor() -> String? {
+        // get the cursor position
+        let beginning = noteContent.beginningOfDocument
+        
+        if let start = noteContent.position(from: beginning, offset: noteContent.selectedRange.location), let end = noteContent.position(from: start, offset: noteContent.selectedRange.length){
+            let textRange = noteContent.tokenizer.rangeEnclosingPosition(end, with: .word, inDirection: UITextDirection(rawValue: 1))
+            if let textRange = textRange {
+                return noteContent.text(in: textRange)
+            }
+        }
+        return nil
+    }
     
     /*
     // MARK: - Navigation
