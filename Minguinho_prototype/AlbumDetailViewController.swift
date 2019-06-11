@@ -49,6 +49,8 @@ class AlbumDetailViewController: UIViewController,UITableViewDelegate, UITableVi
         super.viewDidLoad()
         albumList.delegate = self
         albumList.dataSource = self
+        
+        albumImage.layer.cornerRadius = 8.0
     
         let deleteImage = UIImage(named: "211835-512-29")?.withRenderingMode(.alwaysOriginal)
         deleteAlbum.setImage(deleteImage, for: .normal)

@@ -41,6 +41,7 @@ class AlbumViewController: UIViewController, UICollectionViewDataSource, UIColle
             cell.albumImage.image = albumImage
         }
         cell.albumYear.text = formatter.string(for: album.albumDate)
+        cell.albumImage.layer.cornerRadius = 5.0
 //        print(cell.albumName.text!)
         return cell
     }
