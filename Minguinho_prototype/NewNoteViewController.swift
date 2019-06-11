@@ -91,7 +91,7 @@ class NewNoteViewController: UIViewController, UICollectionViewDelegate, UIColle
         generateWords()
         noteContent.inputAccessoryView = recommendView
         dicList = AppDelegate.global.dicList
-//        print(dicList[1000])
+//debug print(dicList[1000])
     }
     
     override func viewWillDisappear(_ animated: Bool) {

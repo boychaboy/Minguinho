@@ -103,6 +103,7 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
         // Do any additional setup after loading the view.
         generateWords()
         noteContent.inputAccessoryView = recommendView
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

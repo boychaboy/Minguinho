@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             do {
                 let original = try String(contentsOfFile : filePath)
                 global.dicList = original.components(separatedBy: " ")
-                print("dic.txt loaded:)")
+//debug                print("dic.txt loaded:)")
             } catch {
                 print("Error : content load fail")
             }
