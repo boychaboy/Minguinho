@@ -17,6 +17,7 @@
 		076F7B4E22A9141F00721138 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F7B4D22A9141F00721138 /* DataManager.swift */; };
 		0770BD2D22AEB94900210030 /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0770BD2C22AEB94900210030 /* RecommendCollectionViewCell.swift */; };
 		077B5A1022A94B3E0019573C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B5A0F22A94B3E0019573C /* DetailViewController.swift */; };
+		077FD62922AFBFD70027F6DD /* dic.txt in Resources */ = {isa = PBXBuildFile; fileRef = 077FD62822AFBFD70027F6DD /* dic.txt */; };
 		07D3E55622ABC57F00EAD179 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3E55522ABC57F00EAD179 /* AlbumViewController.swift */; };
 		07D3E55822ABC5C300EAD179 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3E55722ABC5C300EAD179 /* AlbumCollectionViewCell.swift */; };
 		07D3E55E22ABEFB900EAD179 /* AddAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3E55D22ABEFB900EAD179 /* AddAlbumViewController.swift */; };
@@ -37,6 +38,7 @@
 		076F7B4D22A9141F00721138 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		0770BD2C22AEB94900210030 /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
 		077B5A0F22A94B3E0019573C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		077FD62822AFBFD70027F6DD /* dic.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dic.txt; sourceTree = "<group>"; };
 		07D3E55522ABC57F00EAD179 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		07D3E55722ABC5C300EAD179 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		07D3E55D22ABEFB900EAD179 /* AddAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlbumViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		075EC27922A8CDA6000F36A0 /* Minguinho_prototype */ = {
 			isa = PBXGroup;
 			children = (
+				077FD62822AFBFD70027F6DD /* dic.txt */,
 				075EC27A22A8CDA6000F36A0 /* AppDelegate.swift */,
 				075EC27E22A8CDA6000F36A0 /* Main.storyboard */,
 				075EC28422A8CDA8000F36A0 /* Assets.xcassets */,
@@ -176,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				075EC28822A8CDA8000F36A0 /* LaunchScreen.storyboard in Resources */,
+				077FD62922AFBFD70027F6DD /* dic.txt in Resources */,
 				075EC28522A8CDA8000F36A0 /* Assets.xcassets in Resources */,
 				075EC28022A8CDA6000F36A0 /* Main.storyboard in Resources */,
 			);

@@ -13,10 +13,14 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    struct global {
+        static var dicList = [String]()
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        readDictionary()
         return true
     }
 
@@ -46,5 +50,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data stack
 
+    func readDictionary(){
+        if let filePath = Bundle.main.path(forResource: "dic", ofType: "txt"){
+            do {
+                let original = try String(contentsOfFile : filePath)
+                global.dicList = original.components(separatedBy: " ")
+                print("dic.txt loaded:)")
+            } catch {
+                print("Error : content load fail")
+            }
+        }
+        else{
+            print("Error : 'dic.txt' not found")
+        }
+    }
 }
 
