@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Marklight
 import MaterialComponents.MaterialButtons
 
 
@@ -88,18 +87,14 @@ func generateWords(source: String) {
             break
         }
         if source.editDistance(to: word) < 3{
-            print(word)
+//            print(word)
             iter = iter + 1
             DetailViewController.global.recommendList.append(word)
         }
     }
 }
 
-
-
-
 class DetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextViewDelegate {
-
     
     var willShowToken: NSObjectProtocol?
     var willHideToken: NSObjectProtocol?
@@ -128,6 +123,7 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     struct global {
         static var recommendList = [String]()
+        static var searchFlag : Bool = false
     }
 
     @objc func shareButton() {
@@ -212,11 +208,20 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
 //
 //            print("\(cursorPosition)")
 //        }
+        if (global.searchFlag == true){
+            for i in 0..<DataManager.shared.noteList.count{
+                if( DataManager.shared.noteList[i].title == note?.title) && (DataManager.shared.noteList[i].album == note?.album) &&
+                    (DataManager.shared.noteList[i].content == note?.content)
+                {
+                    indexRow = i
+                }
+            }
+            global.searchFlag = false
+        }
     }
 
     
     override func viewWillDisappear(_ animated: Bool) {
-        
         DataManager.shared.noteList[indexRow].title = noteTitle.text
         DataManager.shared.noteList[indexRow].album = noteAlbum.text
         DataManager.shared.noteList[indexRow].content = noteContent.text

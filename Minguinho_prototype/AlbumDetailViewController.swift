@@ -16,6 +16,7 @@ class AlbumDetailViewController: UIViewController,UITableViewDelegate, UITableVi
     var albumCnt : Int = 0
     var albumNotes = [Note]()
     var realIndex = [Int]()
+    var deleteFlag : Bool = false
     
     @IBOutlet weak var albumName: UITextField!
     
@@ -30,6 +31,7 @@ class AlbumDetailViewController: UIViewController,UITableViewDelegate, UITableVi
         DataManager.shared.albumList.remove(at: index.row)
         self.dismiss(animated: true, completion: nil)
         performSegue(withIdentifier: "unwind", sender: self)
+        deleteFlag = true
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,8 +84,10 @@ class AlbumDetailViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        DataManager.shared.albumList[index.row].albumName = self.albumName.text
-        DataManager.shared.saveContext()
+        if deleteFlag == false {
+            DataManager.shared.albumList[index.row].albumName = self.albumName.text
+            DataManager.shared.saveContext()
+        }
         dismiss(animated: true, completion: nil)
         super.viewWillDisappear(animated)
     }

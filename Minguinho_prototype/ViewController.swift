@@ -51,7 +51,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if isFiltering() {
             return filteredNotes.count
         }
-        
         return DataManager.shared.noteList.count
     }
     
@@ -108,6 +107,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             vc.note = target
             vc.indexRow = index.row
 //            print("note send to vc at row for \(index.row)")
+            DetailViewController.global.searchFlag = true
         }
     }
 
