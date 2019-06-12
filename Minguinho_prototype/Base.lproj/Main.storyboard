@@ -63,11 +63,6 @@
                                     <segue destination="PwV-L8-iP1" kind="show" id="STj-EZ-PNw"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" fixedFrame="YES" text="" translatesAutoresizingMaskIntoConstraints="NO" id="x4s-yR-RP7">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -80,7 +75,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+<<<<<<< HEAD
                     <navigationItem key="navigationItem" id="63d-qs-3N7"/>
+=======
+                    <navigationItem key="navigationItem" id="udR-hQ-3u8"/>
+>>>>>>> addSearchbar
                     <connections>
                         <outlet property="addNote" destination="FhN-C3-EJi" id="V7O-F7-6Gt"/>
                         <outlet property="recentNotesTable" destination="x9q-PW-Xgg" id="lTK-tR-1Af"/>
@@ -186,7 +185,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nvY-oo-6hD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="2205.7971014492755" y="531.69642857142856"/>
+=======
+            <point key="canvasLocation" x="2115.9420289855075" y="780.80357142857144"/>
+>>>>>>> addSearchbar
         </scene>
         <!--Album Detail View Controller-->
         <scene sceneID="QGJ-xJ-d4a">
@@ -278,7 +281,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hD-zg-T1Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JXJ-dq-C2g" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="3079.7101449275365" y="928.79464285714278"/>
+=======
+            <point key="canvasLocation" x="3051" y="1014"/>
+>>>>>>> addSearchbar
         </scene>
         <!--Add Album View Controller-->
         <scene sceneID="9eQ-00-Qut">
@@ -366,7 +373,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWk-Hn-Y5i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="4473.913043478261" y="112.5"/>
+=======
+            <point key="canvasLocation" x="4087" y="158"/>
+>>>>>>> addSearchbar
         </scene>
         <!--New Note View Controller-->
         <scene sceneID="J07-xZ-flK">
@@ -411,7 +422,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S9n-V1-oMg"/>
                     </view>
+<<<<<<< HEAD
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+=======
+>>>>>>> addSearchbar
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="noteAlbum" destination="Ueq-di-Np7" id="s8M-Qq-3fr"/>
@@ -464,7 +478,7 @@
         <!--Detail View Controller-->
         <scene sceneID="Odr-73-7Og">
             <objects>
-                <viewController id="Bh2-UC-fJe" customClass="DetailViewController" customModule="Minguinho_prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="Bh2-UC-fJe" customClass="DetailViewController" customModule="Minguinho_prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B6D-dK-HTc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -506,6 +520,7 @@
                         <viewLayoutGuide key="safeArea" id="S5p-hV-KYV"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="noteAlbum" destination="GJw-JN-ScK" id="r9G-sL-Pkp"/>
                         <outlet property="noteContent" destination="uWh-48-wTR" id="rBF-dW-tcN"/>
@@ -556,6 +571,7 @@
                 </collectionView>
             </objects>
             <point key="canvasLocation" x="3152.1739130434785" y="221.65178571428569"/>
+<<<<<<< HEAD
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="h6V-ko-Tst">
@@ -597,6 +613,8 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjk-B3-kd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1828.985507246377" y="-547.09821428571422"/>
+=======
+>>>>>>> addSearchbar
         </scene>
         <!--Album-->
         <scene sceneID="kCb-Fb-QXv">
@@ -610,12 +628,57 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+<<<<<<< HEAD
                         <segue destination="bBs-ok-zxR" kind="relationship" relationship="rootViewController" id="Tvs-QX-BQg"/>
+=======
+                        <segue destination="kkB-3R-lkz" kind="relationship" relationship="viewControllers" id="38d-wL-b0E"/>
+                        <segue destination="JTP-ow-Yay" kind="relationship" relationship="viewControllers" id="gqg-4L-n8K"/>
+>>>>>>> addSearchbar
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AF8-dl-lH7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1295.6521739130435" y="531.69642857142856"/>
+        </scene>
+        <!--Recent-->
+        <scene sceneID="Biw-xG-fjX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kkB-3R-lkz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recent" image="list" landscapeImage="list" id="KNj-nj-Did">
+                        <color key="badgeColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Kx-My-ESz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="EY4-fh-3DO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rE5-JN-FK7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1828.985507246377" y="-547.09821428571422"/>
+        </scene>
+        <!--Album-->
+        <scene sceneID="suJ-5A-x7p">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JTP-ow-Yay" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Album" image="album" id="5dz-hE-PL3"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7om-UC-z0B">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bBs-ok-zxR" kind="relationship" relationship="rootViewController" id="Unl-dK-JIy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TnV-DJ-Kdw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1205.7971014492755" y="780.80357142857144"/>
         </scene>
     </scenes>
     <resources>

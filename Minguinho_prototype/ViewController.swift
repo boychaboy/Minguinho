@@ -9,7 +9,7 @@
 import UIKit
 import MaterialComponents.MaterialButtons
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let impact = UIImpactFeedbackGenerator()
     @IBOutlet weak var recentNotesTable: UITableView!
@@ -20,7 +20,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         impact.impactOccurred()
     }
     
-    
     let formatter: DateFormatter = {
         let f = DateFormatter()
         f.dateStyle = .medium
@@ -28,16 +27,45 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return f
     }()
     
+    // Search Variables
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredNotes = [Note]()
+    
+//     Search functions
+    func searchBarIsEmpty() -> Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredNotes = DataManager.shared.noteList.filter({( note : Note) -> Bool in
+            return ((note.content?.lowercased().contains(searchText.lowercased()))!||(note.title?.lowercased().contains(searchText.lowercased()))!||(note.album?.lowercased().contains(searchText.lowercased()))!)
+        })
+        recentNotesTable.reloadData()
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering() {
+            return filteredNotes.count
+        }
+        
         return DataManager.shared.noteList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recentNotes", for: indexPath)
-        let target = DataManager.shared.noteList[indexPath.row]
+        let target : Note
+        if isFiltering() {
+            target = filteredNotes[indexPath.row]
+        }
+        else{
+            target = DataManager.shared.noteList[indexPath.row]
+        }
         cell.textLabel?.text = target.title
         cell.detailTextLabel?.text = formatter.string(for: target.date)
-        
         return cell
     }
     
@@ -71,7 +99,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             guard let vc : DetailViewController = segue.destination as? DetailViewController else {
                 return
             }
-            let target = DataManager.shared.noteList[index.row]
+            let target : Note
+            if isFiltering() {
+                target = filteredNotes[index.row]
+            } else {
+                target = DataManager.shared.noteList[index.row]
+            }
             vc.note = target
             vc.indexRow = index.row
 //            print("note send to vc at row for \(index.row)")
@@ -81,6 +114,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        // Setup the Searchbar
+//        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+        definesPresentationContext = true
         
         recentNotesTable.delegate = self
         recentNotesTable.dataSource = self
@@ -109,6 +150,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
+    
 }
 
+extension ViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+}
 
