@@ -10,6 +10,90 @@ import UIKit
 import Marklight
 import MaterialComponents.MaterialButtons
 
+
+//
+private extension String {
+    subscript(i:Int) -> Character {
+        let idx = index(startIndex, offsetBy: i)
+        return self[idx]
+    }
+}
+
+struct Array2D<T> {
+    let width: Int, height: Int
+    var length: Int { return width * height }
+    var data: [T?]
+    var last: T? { return data.last! }
+    
+    init(width:Int, height: Int) {
+        self.width = width
+        self.height = height
+        data = Array<T?>(repeating:nil, count: width * height)
+    }
+    
+    subscript(row: Int, col: Int) -> T? {
+        get {
+            guard case (0..<length) = row * col,
+                case (0..<width) = col,
+                case (0..<height) = row
+                else { return nil }
+            return data[row*width + col]
+        }
+        set {
+            guard case (0..<length) = row * col,
+                case (0..<width) = col,
+                case (0..<height) = row
+                else { return }
+            data[row*width + col] = newValue
+            
+        }
+    }
+    
+    subscript(i:Int) -> T? {
+        get { return data[i] }
+        set { data[i] = newValue }
+    }
+}
+
+public extension String {
+    func editDistance(to s: String) -> Int {
+        var grid = Array2D<Int>(width: s.count+1, height: count+1)
+        
+        (0...count).forEach{ grid[$0, 0] = $0 }
+        (0...s.count).forEach{ grid[0, $0] = $0 }
+        
+        for i in 1...count {
+            for j in 1...s.count {
+                if let x = grid[i, j-1],
+                    let y = grid[i-1, j],
+                    let z = grid[i-1, j-1]
+                {
+                    grid[i, j] = Swift.min(x+1, y+1, z + (self[i-1] == s[j-1] ? 0 : 1))
+                }
+            }
+        }
+        
+        return grid.last!
+    }
+}
+
+//diclist = list veriable, with read korean dic
+//word = korean word
+//source = source that user write
+//output = if distence < 4 then append to output list
+func generateWords(source: String) {
+    for word in AppDelegate.global.dicList {
+        var newList = [String]()
+        if source.editDistance(to: word) < 4{
+            newList.append(word)
+            DetailViewController.global.recommendList = newList
+        }
+    }
+}
+
+
+
+
 class DetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextViewDelegate {
 
     
@@ -37,10 +121,11 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
     var indexRow: Int = 0
 //    let textStorage = MarklightTextStorage()
     
-    var recommend = [String]()
     
-//    @IBOutlet weak var recordButton: MDCFloatingButton!
-    
+    struct global {
+        static var recommendList = [String]()
+    }
+
     @objc func shareButton() {
         guard let note = note?.content else {
             print("no item to share")
@@ -58,6 +143,7 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if((keyPath == "selectedTextRange")){
             if let text = wordBeforeCursor(){
+                generateWords(source: text)
                 print(text)
             }
             else{
@@ -115,7 +201,7 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
         })
         
         // Do any additional setup after loading the view.
-        generateWords()
+//        generateWords()
         noteContent.inputAccessoryView = recommendView
 //        if let selectedRange = noteContent.selectedTextRange {
 //            let cursorPosition = noteContent.offset(from: noteContent.beginningOfDocument, to: selectedRange.start)
@@ -138,31 +224,31 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     
-    
-    func generateWords() {
-        recommend.append("하와이")
-        recommend.append("쌈마이")
-        recommend.append("Shine my")
-        recommend.append("카와이")
-        recommend.append("까나리")
-        recommend.append("나와이")
-        recommend.append("Find mine")
-    }
+//
+//    func generateWords() {
+//        recommend.append("하와이")
+//        recommend.append("쌈마이")
+//        recommend.append("Shine my")
+//        recommend.append("카와이")
+//        recommend.append("까나리")
+//        recommend.append("나와이")
+//        recommend.append("Find mine")
+//    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recommend.count
+        return global.recommendList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recommendWord", for: indexPath) as! RecommendCollectionViewCell
-        cell.recommendWord.text = recommend[indexPath.row]
+        cell.recommendWord.text = global.recommendList[indexPath.row]
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(recommend[indexPath.row])
+        print(global.recommendList[indexPath.row])
         var text = self.noteContent.text
-        text = text! + recommend[indexPath.row]
+        text = text! + global.recommendList[indexPath.row]
         self.noteContent.text = text
         return
     }
