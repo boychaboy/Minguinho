@@ -186,7 +186,7 @@
         <!--Album Detail View Controller-->
         <scene sceneID="QGJ-xJ-d4a">
             <objects>
-                <viewController id="6By-k6-Z9w" customClass="AlbumDetailViewController" customModule="Minguinho_prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="6By-k6-Z9w" customClass="AlbumDetailViewController" customModule="Minguinho_prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kwb-Ky-QM4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -366,13 +366,13 @@
         <!--New Note View Controller-->
         <scene sceneID="J07-xZ-flK">
             <objects>
-                <viewController id="PwV-L8-iP1" customClass="NewNoteViewController" customModule="Minguinho_prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="PwV-L8-iP1" customClass="NewNoteViewController" customModule="Minguinho_prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vNO-lq-WvJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsf-C3-ohi">
-                                <rect key="frame" x="17" y="174" width="377" height="639"/>
+                                <rect key="frame" x="17" y="174" width="377" height="688"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
@@ -406,7 +406,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S9n-V1-oMg"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="noteAlbum" destination="Ueq-di-Np7" id="s8M-Qq-3fr"/>
                         <outlet property="noteContent" destination="Rsf-C3-ohi" id="9hq-8U-rd1"/>
@@ -458,7 +458,7 @@
         <!--Detail View Controller-->
         <scene sceneID="Odr-73-7Og">
             <objects>
-                <viewController id="Bh2-UC-fJe" customClass="DetailViewController" customModule="Minguinho_prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="Bh2-UC-fJe" customClass="DetailViewController" customModule="Minguinho_prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B6D-dK-HTc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -500,6 +500,7 @@
                         <viewLayoutGuide key="safeArea" id="S5p-hV-KYV"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="noteAlbum" destination="GJw-JN-ScK" id="r9G-sL-Pkp"/>
                         <outlet property="noteContent" destination="uWh-48-wTR" id="rBF-dW-tcN"/>
