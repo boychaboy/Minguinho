@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0732007222B0DCBA009BDC42 /* dic.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0732007122B0DCBA009BDC42 /* dic.txt */; };
+		0732007822B10062009BDC42 /* dic.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0732007722B10062009BDC42 /* dic.txt */; };
 		075EC27B22A8CDA6000F36A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075EC27A22A8CDA6000F36A0 /* AppDelegate.swift */; };
 		075EC27D22A8CDA6000F36A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075EC27C22A8CDA6000F36A0 /* ViewController.swift */; };
 		075EC28022A8CDA6000F36A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 075EC27E22A8CDA6000F36A0 /* Main.storyboard */; };
@@ -27,7 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0732007122B0DCBA009BDC42 /* dic.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dic.txt; sourceTree = "<group>"; };
+		0732007722B10062009BDC42 /* dic.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dic.txt; sourceTree = "<group>"; };
 		075EC27722A8CDA6000F36A0 /* Minguinho_prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minguinho_prototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		075EC27A22A8CDA6000F36A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		075EC27C22A8CDA6000F36A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,8 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				07DB82C522B083E500BC60AB /* keras_model_simpletext_batch128_epochs50.mlmodel */,
-				0732007122B0DCBA009BDC42 /* dic.txt */,
 				075EC27A22A8CDA6000F36A0 /* AppDelegate.swift */,
+				0732007722B10062009BDC42 /* dic.txt */,
 				075EC27E22A8CDA6000F36A0 /* Main.storyboard */,
 				075EC28422A8CDA8000F36A0 /* Assets.xcassets */,
 				075EC28622A8CDA8000F36A0 /* LaunchScreen.storyboard */,
@@ -182,7 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				075EC28822A8CDA8000F36A0 /* LaunchScreen.storyboard in Resources */,
-				0732007222B0DCBA009BDC42 /* dic.txt in Resources */,
+				0732007822B10062009BDC42 /* dic.txt in Resources */,
 				075EC28522A8CDA8000F36A0 /* Assets.xcassets in Resources */,
 				075EC28022A8CDA6000F36A0 /* Main.storyboard in Resources */,
 			);

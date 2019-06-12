@@ -72,7 +72,6 @@ public extension String {
                 }
             }
         }
-        
         return grid.last!
     }
 }
@@ -82,11 +81,16 @@ public extension String {
 //source = source that user write
 //output = if distence < 4 then append to output list
 func generateWords(source: String) {
+    var iter = 0
+    DetailViewController.global.recommendList = [String]()
     for word in AppDelegate.global.dicList {
-        var newList = [String]()
-        if source.editDistance(to: word) < 4{
-            newList.append(word)
-            DetailViewController.global.recommendList = newList
+        if (iter>20) {
+            break
+        }
+        if source.editDistance(to: word) < 3{
+            print(word)
+            iter = iter + 1
+            DetailViewController.global.recommendList.append(word)
         }
     }
 }
@@ -144,7 +148,7 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
         if((keyPath == "selectedTextRange")){
             if let text = wordBeforeCursor(){
                 generateWords(source: text)
-                print(text)
+                recommendView.reloadData()
             }
             else{
             }
@@ -246,7 +250,6 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(global.recommendList[indexPath.row])
         var text = self.noteContent.text
         text = text! + global.recommendList[indexPath.row]
         self.noteContent.text = text
