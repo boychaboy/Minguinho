@@ -11,15 +11,11 @@ import Marklight
 
 class NewNoteViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    
-
     @IBOutlet weak var noteTitle: UITextField!
     @IBOutlet weak var noteAlbum: UITextField!
     @IBOutlet weak var noteContent: UITextView!
     
     @IBOutlet weak var recommendView: UICollectionView!
-    
-    
     
     var willShowToken: NSObjectProtocol?
     var willHideToken: NSObjectProtocol?
@@ -89,7 +85,7 @@ class NewNoteViewController: UIViewController, UICollectionViewDelegate, UIColle
         })
         
         generateWords()
-        noteContent.inputAccessoryView = recommendView
+//        noteContent.inputAccessoryView = recommendView
         dicList = AppDelegate.global.dicList
 //debug print(dicList[1000])
     }
