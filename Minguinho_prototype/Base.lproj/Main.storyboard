@@ -517,21 +517,21 @@
                         <constraint firstAttribute="width" constant="414" id="lkY-md-fX0"/>
                     </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Oa8-Jo-mYg">
-                        <size key="itemSize" width="60" height="50"/>
+                        <size key="itemSize" width="70" height="42"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                     <cells>
                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recommendWord" id="n6w-3s-YZS" customClass="RecommendCollectionViewCell" customModule="Minguinho_prototype" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="-8" width="60" height="50"/>
+                            <rect key="frame" x="0.0" y="-4" width="70" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="70" height="42"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hdq-c4-dMR">
-                                        <rect key="frame" x="9" y="15" width="42" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="11" width="70" height="20.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -539,7 +539,8 @@
                                 </subviews>
                             </view>
                             <constraints>
-                                <constraint firstItem="hdq-c4-dMR" firstAttribute="centerX" secondItem="n6w-3s-YZS" secondAttribute="centerX" id="a3S-Dj-Z15"/>
+                                <constraint firstAttribute="trailing" secondItem="hdq-c4-dMR" secondAttribute="trailing" id="RUB-ul-AR9"/>
+                                <constraint firstItem="hdq-c4-dMR" firstAttribute="leading" secondItem="n6w-3s-YZS" secondAttribute="leading" id="U05-lg-9hM"/>
                                 <constraint firstItem="hdq-c4-dMR" firstAttribute="centerY" secondItem="n6w-3s-YZS" secondAttribute="centerY" id="oHr-yz-TsW"/>
                             </constraints>
                             <connections>
