@@ -90,7 +90,7 @@ class AlbumDetailViewController: UIViewController,UITableViewDelegate, UITableVi
         }
         dismiss(animated: true, completion: nil)
         super.viewWillDisappear(animated)
-    }
+    }   
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "loadNoteFromAlbum") {
