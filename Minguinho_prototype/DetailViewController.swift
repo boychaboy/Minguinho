@@ -18,6 +18,20 @@ private extension String {
     }
 }
 
+extension String {
+    subscript (bounds: CountableClosedRange<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return String(self[start...end])
+    }
+    
+    subscript (bounds: CountableRange<Int>) -> String {
+        let start = index(startIndex, offsetBy: bounds.lowerBound)
+        let end = index(startIndex, offsetBy: bounds.upperBound)
+        return String(self[start..<end])
+    }
+}
+
 struct Array2D<T> {
     let width: Int, height: Int
     var length: Int { return width * height }
@@ -80,53 +94,96 @@ public extension String {
 //source = source that user write
 //output = if distence < 4 then append to output list
 func generateWords(source: String, index: Int, word_len: Int) {
-    var iter = 0
     DetailViewController.global.recommendList = [String]()
-    if(word_len==1){
-        for word in AppDelegate.global.dicList11[index]{
-            if (iter>20) {
-                break
+    var iter = 0
+    if(word_len==0){//english
+        var i = 1
+        while (iter<30){
+            for word in AppDelegate.global.dicList0{
+                if source.editDistance(to: word) == i{
+                    iter = iter + 1
+                    DetailViewController.global.recommendList.append(word)
+                }
+                if(iter>30){
+                    break
+                }
             }
-            if source.editDistance(to: word) < 4{
-    //            print(word)
-                iter = iter + 1
-                DetailViewController.global.recommendList.append(word)
+            i += 1
+            if(i>3){
+                break;
+            }
+        }
+    }
+    if(word_len==1){
+        var i = 1
+        while (iter<30){
+            for word in AppDelegate.global.dicList11[index]{
+                if source.editDistance(to: word) == i{
+                    iter = iter + 1
+                    DetailViewController.global.recommendList.append(word)
+                }
+                if(iter>30){
+                    break
+                }
+            }
+            i += 1
+            if(i>3){
+                break;
             }
         }
     }
     if(word_len==2){
-        for word in AppDelegate.global.dicList22[index]{
-            if (iter>20) {
-                break
+        var i = 1
+        while(iter<30){
+            for word in AppDelegate.global.dicList22[index]{
+                if source.editDistance(to: word) == i{
+                    iter = iter + 1
+                    DetailViewController.global.recommendList.append(word)
+                }
+                if(iter>30){
+                    break
+                }
             }
-            if source.editDistance(to: word) < 3{
-                //            print(word)
-                iter = iter + 1
-                DetailViewController.global.recommendList.append(word)
+            i += 1
+            if(i>3){
+                break;
             }
         }
+        print(iter)
     }
     if(word_len==3){
-        for word in AppDelegate.global.dicList33[index]{
-            if (iter>20) {
-                break
+        var i = 1
+        while (iter<30){
+            for word in AppDelegate.global.dicList33[index]{
+                if source.editDistance(to: word) == i{
+                    iter = iter + 1
+                    DetailViewController.global.recommendList.append(word)
+                }
+                if(iter>30){
+                    break
+                }
             }
-            if source.editDistance(to: word) < 3{
-                //            print(word)
-                iter = iter + 1
-                DetailViewController.global.recommendList.append(word)
+            i += 1
+            if(i>3){
+                break;
             }
         }
     }
     if(word_len==4){
-        for word in AppDelegate.global.dicList44[index]{
-            if (iter>20) {
-                break
+        var i = 1
+        while (iter<30){
+            for word in AppDelegate.global.dicList44[index]{
+                if source.editDistance(to: word) == i{
+                    iter = iter + 1
+                    DetailViewController.global.recommendList.append(word)
+                }
+                if(iter>30){
+                    break
+                }
             }
-            if source.editDistance(to: word) < 3{
-                //            print(word)
-                iter = iter + 1
-                DetailViewController.global.recommendList.append(word)
+            i += 1
+            if(i>3){
+                break;
             }
         }
     }
@@ -191,32 +248,56 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
 
     func getRhyme(source : String) {
-        let strlen = source.count
+        var strlen = source.count
         var moum = [Int]()
         var moum_class = [Int]()
         var index = Int()
-        for i in 0..<strlen {
-            moum.append(getMoum(source : source[i]))
-            moum_class.append(getMoumClass(m : moum[i]))
+        var en_flag = false
+        let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+        for char in source.unicodeScalars {
+            if characterset.contains(char) {
+                en_flag = true
+            }
         }
-        if(strlen == 1){//한글자 라임
-            index = moum_class[0]
-        }
-        else if(strlen == 2){//두글자 라임
-            index = 7*moum_class[0] + moum_class[1]
-        }
-        else if(strlen == 3){//세글자 라임
-            index = 49*moum_class[0] + 7*moum_class[1] + moum_class[2]
-        }
-        else if(strlen == 4){//네글자 라임
-            index = 343*moum_class[0] + 49*moum_class[1] + 7*moum_class[2] + moum_class[3]
+        if(en_flag==false){//korean rhyme
+            print("Korean")
+            for i in 0..<strlen {
+                moum.append(getMoum(source : source[i]))
+                moum_class.append(getMoumClass(m : moum[i]))
+            }
+            if(strlen == 1){//한글자 라임
+                index = moum_class[0]
+            }
+            else if(strlen == 2){//두글자 라임
+                index = 7*moum_class[0] + moum_class[1]
+            }
+            else if(strlen == 3){//세글자 라임
+                index = 49*moum_class[0] + 7*moum_class[1] + moum_class[2]
+            }
+            else if(strlen == 4){//네글자 라임
+                index = 343*moum_class[0] + 49*moum_class[1] + 7*moum_class[2] + moum_class[3]
+            }
+            else{
+                print("다섯글자는 지원하지 않습니다")
+                index = 0
+            }
         }
         else{
-            print("다섯글자는 지원하지 않습니다")
             index = 0
+            strlen = 0
         }
         generateWords(source: source, index: index, word_len: strlen)
         return
+    }
+    
+    func detectedLangauge<T: StringProtocol>(_ forString: T) -> String? {
+        guard let languageCode = NSLinguisticTagger.dominantLanguage(for: String(forString)) else {
+            return nil
+        }
+        
+        let detectedLangauge = Locale.current.localizedString(forIdentifier: languageCode)
+        
+        return detectedLangauge
     }
     
     func getMoumClass(m : Int) -> Int {

@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     struct global {
 //        static var dicList = [String]()
+        static var dicList0 = [String]() // English
         static var dicList1 = [String]()
         static var dicList2 = [String]()
         static var dicList3 = [String]()
@@ -92,11 +93,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    }
         func readDictionary(){
             var dicname = String()
-            for i in 0...3 {
+            for i in 0...4 {
                 if(i==0){dicname = "dic_1"}
                 else if(i==1){dicname = "dic_2"}
                 else if(i==2){dicname = "dic_3"}
                 else if(i==3){dicname = "dic_4"}
+                else if(i==4){dicname = "dic_en"}
                 if let filePath = Bundle.main.path(forResource: dicname, ofType: "txt"){
                     do {
                         let original = try String(contentsOfFile : filePath)
@@ -104,6 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         else if(i==1){global.dicList2 = original.components(separatedBy: "\n")}
                         else if(i==2){global.dicList3 = original.components(separatedBy: "\n")}
                         else if(i==3){global.dicList4 = original.components(separatedBy: "\n")}
+                        else if(i==4){global.dicList0 = original.components(separatedBy: " ")}
                         print(dicname,"loaded :-)")
                     } catch {
                         print("Error : content load fail")
