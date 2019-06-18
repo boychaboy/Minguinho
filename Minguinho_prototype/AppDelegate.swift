@@ -15,13 +15,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     struct global {
-        static var dicList = [String]()
+//        static var dicList = [String]()
+        static var dicList1 = [String]()
+        static var dicList2 = [String]()
+        static var dicList3 = [String]()
+        static var dicList4 = [String]()
+        static var dicList11 = [[String]]()
+        static var dicList22 = [[String]]()
+        static var dicList33 = [[String]]()
+        static var dicList44 = [[String]]()
+        
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         readDictionary()
+//        print(global.dicList[0][0])
+//        print(global.dicList[3][0])
+        makeDicList()
         return true
+    }
+    
+    func makeDicList(){
+        for i in 0..<7{
+            global.dicList11.append(global.dicList1[i].components(separatedBy: " "))
+        }
+        for i in 0..<49{ global.dicList22.append(global.dicList2[i].components(separatedBy: " "))
+        }
+        
+        for i in 0..<343{ global.dicList33.append(global.dicList3[i].components(separatedBy: " "))
+        }
+        
+        for i in 0..<2401{ global.dicList44.append(global.dicList4[i].components(separatedBy: " "))
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -50,19 +76,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data stack
 
-    func readDictionary(){
-        if let filePath = Bundle.main.path(forResource: "dic", ofType: "txt"){
-            do {
-                let original = try String(contentsOfFile : filePath)
-                global.dicList = original.components(separatedBy: " ")
-//debug                print("dic.txt loaded:)")
-            } catch {
-                print("Error : content load fail")
+//    func readDictionary(){
+//        if let filePath = Bundle.main.path(forResource: "dic", ofType: "txt"){
+//            do {
+//                let original = try String(contentsOfFile : filePath)
+//                global.dicList = original.components(separatedBy: " ")
+////debug                print("dic.txt loaded:)")
+//            } catch {
+//                print("Error : content load fail")
+//            }
+//        }
+//        else{
+//            print("Error : 'dic.txt' not found")
+//        }
+//    }
+        func readDictionary(){
+            var dicname = String()
+            for i in 0...3 {
+                if(i==0){dicname = "dic_1"}
+                else if(i==1){dicname = "dic_2"}
+                else if(i==2){dicname = "dic_3"}
+                else if(i==3){dicname = "dic_4"}
+                if let filePath = Bundle.main.path(forResource: dicname, ofType: "txt"){
+                    do {
+                        let original = try String(contentsOfFile : filePath)
+                        if(i==0){global.dicList1 = original.components(separatedBy: "\n")}
+                        else if(i==1){global.dicList2 = original.components(separatedBy: "\n")}
+                        else if(i==2){global.dicList3 = original.components(separatedBy: "\n")}
+                        else if(i==3){global.dicList4 = original.components(separatedBy: "\n")}
+                        print(dicname,"loaded :-)")
+                    } catch {
+                        print("Error : content load fail")
+                    }
+                }
+                else{
+                    print("Error : 'dic.txt' not found")
+                }
             }
         }
-        else{
-            print("Error : 'dic.txt' not found")
-        }
-    }
+
 }
 

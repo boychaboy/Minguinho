@@ -79,17 +79,55 @@ public extension String {
 //word = korean word
 //source = source that user write
 //output = if distence < 4 then append to output list
-func generateWords(source: String) {
+func generateWords(source: String, index: Int, word_len: Int) {
     var iter = 0
     DetailViewController.global.recommendList = [String]()
-    for word in AppDelegate.global.dicList {
-        if (iter>20) {
-            break
+    if(word_len==1){
+        for word in AppDelegate.global.dicList11[index]{
+            if (iter>20) {
+                break
+            }
+            if source.editDistance(to: word) < 4{
+    //            print(word)
+                iter = iter + 1
+                DetailViewController.global.recommendList.append(word)
+            }
         }
-        if source.editDistance(to: word) < 3{
-//            print(word)
-            iter = iter + 1
-            DetailViewController.global.recommendList.append(word)
+    }
+    if(word_len==2){
+        for word in AppDelegate.global.dicList22[index]{
+            if (iter>20) {
+                break
+            }
+            if source.editDistance(to: word) < 3{
+                //            print(word)
+                iter = iter + 1
+                DetailViewController.global.recommendList.append(word)
+            }
+        }
+    }
+    if(word_len==3){
+        for word in AppDelegate.global.dicList33[index]{
+            if (iter>20) {
+                break
+            }
+            if source.editDistance(to: word) < 3{
+                //            print(word)
+                iter = iter + 1
+                DetailViewController.global.recommendList.append(word)
+            }
+        }
+    }
+    if(word_len==4){
+        for word in AppDelegate.global.dicList44[index]{
+            if (iter>20) {
+                break
+            }
+            if source.editDistance(to: word) < 3{
+                //            print(word)
+                iter = iter + 1
+                DetailViewController.global.recommendList.append(word)
+            }
         }
     }
 }
@@ -119,7 +157,7 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
 //    var index: IndexPath = []
     var indexRow: Int = 0
 //    let textStorage = MarklightTextStorage()
-    
+//    var dicList = [[[String]]]()
     
     struct global {
         static var recommendList = [String]()
@@ -143,17 +181,83 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if((keyPath == "selectedTextRange")){
             if let text = wordBeforeCursor(){
-                generateWords(source: text)
+//                generateWords(source: text)
+                getRhyme(source: text)
                 recommendView.reloadData()
             }
             else{
             }
         }
     }
+
+    func getRhyme(source : String) {
+        let strlen = source.count
+        var moum = [Int]()
+        var moum_class = [Int]()
+        var index = Int()
+        for i in 0..<strlen {
+            moum.append(getMoum(source : source[i]))
+            moum_class.append(getMoumClass(m : moum[i]))
+        }
+        if(strlen == 1){//한글자 라임
+            index = moum_class[0]
+        }
+        else if(strlen == 2){//두글자 라임
+            index = 7*moum_class[0] + moum_class[1]
+        }
+        else if(strlen == 3){//세글자 라임
+            index = 49*moum_class[0] + 7*moum_class[1] + moum_class[2]
+        }
+        else if(strlen == 4){//네글자 라임
+            index = 343*moum_class[0] + 49*moum_class[1] + 7*moum_class[2] + moum_class[3]
+        }
+        else{
+            print("다섯글자는 지원하지 않습니다")
+            index = 0
+        }
+        generateWords(source: source, index: index, word_len: strlen)
+        return
+    }
+    
+    func getMoumClass(m : Int) -> Int {
+        var c = 0
+        if(m==0 || m==2 || m==9){
+            c = 0
+        }
+        else if(m==1 || m==3 || m==3 || m==5 || m==7 || m==10 || m==11 || m==15){
+            c = 1
+        }
+        else if(m==4 || m==6 || m==14){
+            c = 2
+        }
+        else if(m==8 || m==12){
+            c = 3
+        }
+        else if(m==13 || m==17){
+            c = 4
+        }
+        else if(m==18){
+            c = 5
+        }
+        else if(m==16 || m==19 || m==20){
+            c = 6
+        }
+        return c
+    }
+    
+    func getMoum(source : Character) -> Int {
+        let val = UnicodeScalar(String(source))?.value
+        guard let value = val else { return 0 }
+//        let x = (value - 0xac00) / 28 / 21
+        let y = ((value - 0xac00) / 28) % 21
+//        let z = (value - 0xac00) % 28
+        
+        return Int(y)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.action, target: self, action: #selector(shareButton))
         
         recommendView.delegate = self
@@ -218,6 +322,7 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
             }
             global.searchFlag = false
         }
+//        dicList = AppDelegate.global.dicList
     }
 
     

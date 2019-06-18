@@ -19,7 +19,7 @@ class NewNoteViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     var willShowToken: NSObjectProtocol?
     var willHideToken: NSObjectProtocol?
-    var dicList = [String]()
+    var dicList = [[String]]()
     
 //    let textStorage = MarklightTextStorage()
     
@@ -86,7 +86,7 @@ class NewNoteViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         generateWords()
 //        noteContent.inputAccessoryView = recommendView
-        dicList = AppDelegate.global.dicList
+//        dicList = AppDelegate.global.dicList
 //debug print(dicList[1000])
     }
     

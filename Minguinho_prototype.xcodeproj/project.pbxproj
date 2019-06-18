@@ -18,6 +18,10 @@
 		076F7B4E22A9141F00721138 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F7B4D22A9141F00721138 /* DataManager.swift */; };
 		0770BD2D22AEB94900210030 /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0770BD2C22AEB94900210030 /* RecommendCollectionViewCell.swift */; };
 		077B5A1022A94B3E0019573C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B5A0F22A94B3E0019573C /* DetailViewController.swift */; };
+		07A1C2F422B928C800320B19 /* dic_4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07A1C2F322B928C800320B19 /* dic_4.txt */; };
+		07A1C2F622B933FB00320B19 /* dic_3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07A1C2F522B933FB00320B19 /* dic_3.txt */; };
+		07A1C2F822B9341200320B19 /* dic_2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07A1C2F722B9341200320B19 /* dic_2.txt */; };
+		07A29DE122B2B2410081B686 /* dic_1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07A29DDD22B2B2410081B686 /* dic_1.txt */; };
 		07ABC7DD22B22405005744D7 /* dic_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07ABC7DC22B22405005744D7 /* dic_en.txt */; };
 		07D3E55622ABC57F00EAD179 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3E55522ABC57F00EAD179 /* AlbumViewController.swift */; };
 		07D3E55822ABC5C300EAD179 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D3E55722ABC5C300EAD179 /* AlbumCollectionViewCell.swift */; };
@@ -40,6 +44,10 @@
 		076F7B4D22A9141F00721138 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		0770BD2C22AEB94900210030 /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
 		077B5A0F22A94B3E0019573C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		07A1C2F322B928C800320B19 /* dic_4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dic_4.txt; sourceTree = "<group>"; };
+		07A1C2F522B933FB00320B19 /* dic_3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dic_3.txt; sourceTree = "<group>"; };
+		07A1C2F722B9341200320B19 /* dic_2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dic_2.txt; sourceTree = "<group>"; };
+		07A29DDD22B2B2410081B686 /* dic_1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dic_1.txt; sourceTree = "<group>"; };
 		07ABC7DC22B22405005744D7 /* dic_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dic_en.txt; sourceTree = "<group>"; };
 		07D3E55522ABC57F00EAD179 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		07D3E55722ABC5C300EAD179 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -85,6 +93,10 @@
 			children = (
 				075EC27A22A8CDA6000F36A0 /* AppDelegate.swift */,
 				0732007722B10062009BDC42 /* dic.txt */,
+				07A29DDD22B2B2410081B686 /* dic_1.txt */,
+				07A1C2F722B9341200320B19 /* dic_2.txt */,
+				07A1C2F522B933FB00320B19 /* dic_3.txt */,
+				07A1C2F322B928C800320B19 /* dic_4.txt */,
 				07ABC7DC22B22405005744D7 /* dic_en.txt */,
 				075EC27E22A8CDA6000F36A0 /* Main.storyboard */,
 				075EC28422A8CDA8000F36A0 /* Assets.xcassets */,
@@ -182,9 +194,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				075EC28822A8CDA8000F36A0 /* LaunchScreen.storyboard in Resources */,
+				07A1C2F622B933FB00320B19 /* dic_3.txt in Resources */,
 				0732007822B10062009BDC42 /* dic.txt in Resources */,
 				075EC28522A8CDA8000F36A0 /* Assets.xcassets in Resources */,
+				07A1C2F422B928C800320B19 /* dic_4.txt in Resources */,
 				07ABC7DD22B22405005744D7 /* dic_en.txt in Resources */,
+				07A1C2F822B9341200320B19 /* dic_2.txt in Resources */,
+				07A29DE122B2B2410081B686 /* dic_1.txt in Resources */,
 				075EC28022A8CDA6000F36A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
