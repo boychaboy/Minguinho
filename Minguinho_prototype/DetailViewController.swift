@@ -92,7 +92,7 @@ public extension String {
 //word = korean word
 //source = source that user write
 //output = if distence < 4 then append to output list
-func generateWords(source: String, index: Int, word_len: Int) {
+public func generateWords(source: String, index: Int, word_len: Int) {
     DetailViewController.global.recommendList = [String]()
     var iter = 0
     if(word_len==0){//english
@@ -310,15 +310,6 @@ class DetailViewController: UIViewController, UICollectionViewDelegate, UICollec
         return
     }
     
-    func detectedLangauge<T: StringProtocol>(_ forString: T) -> String? {
-        guard let languageCode = NSLinguisticTagger.dominantLanguage(for: String(forString)) else {
-            return nil
-        }
-        
-        let detectedLangauge = Locale.current.localizedString(forIdentifier: languageCode)
-        
-        return detectedLangauge
-    }
     
     func getMoumClass(m : Int) -> Int {
         var c = 0
