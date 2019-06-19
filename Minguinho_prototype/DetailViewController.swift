@@ -199,6 +199,9 @@ public func generateWords(source: String, index: Int, word_len: Int) {
                     index2 = index
                     index2 = index2 - 343
                     flag = true
+                    if(index2<0){
+                        all_flag = true
+                    }
                 }
                 i = 1
             }
