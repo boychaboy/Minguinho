@@ -9,7 +9,6 @@
 import UIKit
 import MaterialComponents.MaterialButtons
 
-
 //
 private extension String {
     subscript(i:Int) -> Character {
@@ -171,11 +170,15 @@ func generateWords(source: String, index: Int, word_len: Int) {
     }
     if(word_len==4){
         var i = 1
+        var index2 = index
+        var flag = false
+        var all_flag = false
         while (iter<30){
-            for word in AppDelegate.global.dicList44[index]{
+            for word in AppDelegate.global.dicList44[index2]{
                 if source.editDistance(to: word) == i{
                     iter = iter + 1
                     DetailViewController.global.recommendList.append(word)
+                    print(word)
                 }
                 if(iter>30){
                     break
@@ -183,7 +186,24 @@ func generateWords(source: String, index: Int, word_len: Int) {
             }
             i += 1
             if(i>3){
-                break;
+                if(flag){
+                    index2 = index2 - 343
+                    if(index2<0){
+                        all_flag = true
+                    }
+                }
+                else{
+                    index2 = index2 + 343
+                }
+                if(index2 > 2401){
+                    index2 = index
+                    index2 = index2 - 343
+                    flag = true
+                }
+                i = 1
+            }
+            if(all_flag){
+                break
             }
         }
     }

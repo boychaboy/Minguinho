@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0732007822B10062009BDC42 /* dic.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0732007722B10062009BDC42 /* dic.txt */; };
 		075EC27B22A8CDA6000F36A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075EC27A22A8CDA6000F36A0 /* AppDelegate.swift */; };
 		075EC27D22A8CDA6000F36A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075EC27C22A8CDA6000F36A0 /* ViewController.swift */; };
 		075EC28022A8CDA6000F36A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 075EC27E22A8CDA6000F36A0 /* Main.storyboard */; };
@@ -31,7 +30,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0732007722B10062009BDC42 /* dic.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dic.txt; sourceTree = "<group>"; };
 		075EC27722A8CDA6000F36A0 /* Minguinho_prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minguinho_prototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		075EC27A22A8CDA6000F36A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		075EC27C22A8CDA6000F36A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				075EC27A22A8CDA6000F36A0 /* AppDelegate.swift */,
-				0732007722B10062009BDC42 /* dic.txt */,
 				07A29DDD22B2B2410081B686 /* dic_1.txt */,
 				07A1C2F722B9341200320B19 /* dic_2.txt */,
 				07A1C2F522B933FB00320B19 /* dic_3.txt */,
@@ -195,7 +192,6 @@
 			files = (
 				075EC28822A8CDA8000F36A0 /* LaunchScreen.storyboard in Resources */,
 				07A1C2F622B933FB00320B19 /* dic_3.txt in Resources */,
-				0732007822B10062009BDC42 /* dic.txt in Resources */,
 				075EC28522A8CDA8000F36A0 /* Assets.xcassets in Resources */,
 				07A1C2F422B928C800320B19 /* dic_4.txt in Resources */,
 				07ABC7DD22B22405005744D7 /* dic_en.txt in Resources */,
